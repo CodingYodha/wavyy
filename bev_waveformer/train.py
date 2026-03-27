@@ -185,10 +185,10 @@ def build_gt_targets(batch_boxes: list,
             if not (x_min <= bev_x < x_max and y_min <= bev_y < y_max):
                 continue
 # Scale coordinates exactly to the physical pillar size
-            px = int((bev_x - x_min) / ps_x * (hm_w / bev_cfg['bev_w']))
-            py = int((bev_y - y_min) / ps_y * (hm_h / bev_cfg['bev_h']))
-            px = max(0, min(px, hm_w - 1))
-            py = max(0, min(py, hm_h - 1))
+            exact_px = int((bev_x - x_min) / ps_x * (hm_w / bev_cfg['bev_w']))
+            exact_py = int((bev_y - y_min) / ps_y * (hm_h / bev_cfg['bev_h']))
+            px = max(0, min(exact_px, hm_w - 1))
+            py = max(0, min(exact_py, hm_h - 1))
 
             r_x    = max(1, int(box_l / (2 * cell_x)))
             r_y    = max(1, int(box_w / (2 * cell_y)))
@@ -197,8 +197,8 @@ def build_gt_targets(batch_boxes: list,
             if 0 <= cls_id < num_classes:
                 draw_gaussian(heatmap[b_idx, cls_id], px, py, radius)
 
-            reg[b_idx, 0, py, px] = bev_x
-            reg[b_idx, 1, py, px] = bev_y
+            reg[b_idx, 0, py, px] = exact_px - px   #---------------
+            reg[b_idx, 1, py, px] = exact_py - py   #---------------
             reg[b_idx, 2, py, px] = lz
             reg[b_idx, 3, py, px] = math.log(max(box_w, 1e-3))
             reg[b_idx, 4, py, px] = math.log(max(box_l, 1e-3))

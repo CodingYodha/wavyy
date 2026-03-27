@@ -109,12 +109,15 @@ def build_targets(batch_boxes, batch_size, num_classes, hm_h, hm_w, bev_cfg, dev
             lz=float(box[3]); bw,bl,bh,yaw=float(box[4]),float(box[5]),float(box[6]),float(box[7])
             if not (x_min<=bev_x<x_max and y_min<=bev_y<y_max): continue
 
-            px=max(0,min(int((bev_x - x_min) / ps_x * (hm_w / bev_cfg['bev_w'])),hm_w-1))
-            py=max(0,min(int((bev_y - y_min) / ps_y * (hm_h / bev_cfg['bev_h'])),hm_h-1))
+            exact_px = (bev_x - x_min) / ps_x * (hm_w / bev_cfg['bev_w'])
+            exact_py = (bev_y - y_min) / ps_y * (hm_h / bev_cfg['bev_h'])
+
+            px = max(0, min(int(exact_px), hm_w - 1))
+            py = max(0, min(int(exact_py), hm_h - 1))
 
             r=_gaussian_radius(max(1,int(bw/(2*cell_y)))*2,max(1,int(bl/(2*cell_x)))*2)
             if 0<=cls_id<num_classes: _draw_gaussian(heatmap[b,cls_id],px,py,r)
-            reg[b,0,py,px]=bev_x; reg[b,1,py,px]=bev_y; reg[b,2,py,px]=lz
+            reg[b,0,py,px]=exact_px - px; reg[b,1,py,px]=exact_py - py; reg[b,2,py,px]=lz
             reg[b,3,py,px]=math.log(max(bw,1e-3)); reg[b,4,py,px]=math.log(max(bl,1e-3))
             reg[b,5,py,px]=math.log(max(bh,1e-3)); reg[b,6,py,px]=math.sin(yaw)
             reg[b,7,py,px]=math.cos(yaw); reg_mask[b,0,py,px]=1.0

@@ -322,7 +322,7 @@ class KITTIPillarDataset(Dataset):
         bin_path = self.lidar_dir / f'{fid}.bin'
         points   = np.fromfile(str(bin_path), dtype=np.float32).reshape(-1, 4)
 
-        pillars, num_pts, coords, n_pil = points_to_pillars(points, self.cfg)
+        
 
         boxes = np.zeros((0, 8), dtype=np.float32)
         # Load labels for both train AND val with proper cam→LiDAR transform.
@@ -338,6 +338,30 @@ class KITTIPillarDataset(Dataset):
                     o['w'], o['l'], o['h'], o['yaw']
                 ] for o in objs], dtype=np.float32)
 
+            # --- V2: 3D Data Augmentation (Training ONLY) ---
+        if self.split == 'train' and len(boxes) > 0:
+            # 1. Random Flip Y (Left/Right)
+            if np.random.rand() < 0.5:
+                points[:, 1] = -points[:, 1]
+                boxes[:, 2]  = -boxes[:, 2]
+                boxes[:, 7]  = -boxes[:, 7]  # Negate yaw
+            if np.random.rand() < 0.5:
+                points[:, 0] = -points[:, 0]
+                boxes[:, 1]  = -boxes[:, 1]
+                boxes[:, 7]  = np.pi - boxes[:, 7]  # Reflect yaw
+            # 3. Random Global Rotation (-45 to +45 degrees)
+            if np.random.rand() < 0.5:
+                rot_angle = np.random.uniform(-np.pi/4, np.pi/4)
+                cos_val, sin_val = np.cos(rot_angle), np.sin(rot_angle)
+                rot_mat = np.array([[cos_val, -sin_val], [sin_val, cos_val]], dtype=np.float32)
+
+                # Apply rotation matrix to X and Y coordinates
+                points[:, :2] = points[:, :2] @ rot_mat
+                boxes[:, 1:3] = boxes[:, 1:3] @ rot_mat
+                boxes[:, 7]  += rot_angle
+            
+        pillars, num_pts, coords, n_pil = points_to_pillars(points, self.cfg)
+        
         return {
             'pillars'    : torch.from_numpy(pillars),
             'num_points' : torch.from_numpy(num_pts),

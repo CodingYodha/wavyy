@@ -124,10 +124,10 @@ class PillarFeatureNet(nn.Module):
             # FIX: eps=1e-3 — default 1e-5 causes 1/σ explosion when most
             # of the P×T samples are zero-padded (sparse pillar scenes).
             nn.BatchNorm1d(32, eps=1e-3),
-            nn.ReLU(inplace=True),
+            nn.SiLU(inplace=True),
             nn.Linear(32, out_channels, bias=False),
             nn.BatchNorm1d(out_channels, eps=1e-3),
-            nn.ReLU(inplace=True),
+            nn.SiLU(inplace=True),
         )
         self.out_channels = out_channels
         self.max_points   = max_points
@@ -288,7 +288,7 @@ class WavePropagationOperator(nn.Module):
         self.out_proj = nn.Sequential(
             nn.Conv2d(channels, channels, 1, bias=False),
             nn.GroupNorm(min(8, channels), channels),
-            nn.GELU(),
+            nn.SiLU(inplace=True),
         )
 
         freq_y  = torch.fft.fftfreq(bev_h)
@@ -400,7 +400,7 @@ class WPOBlock(nn.Module):
         self.norm2 = nn.LayerNorm(channels)
         self.ffn   = nn.Sequential(
             nn.Linear(channels, channels * expansion),
-            nn.GELU(),
+            nn.SiLU(inplace=True),
             nn.Linear(channels * expansion, channels),
         )
 
@@ -456,7 +456,7 @@ class WPOBackbone(nn.Module):
         self.stem        = nn.Sequential(
             nn.Conv2d(in_channels, stage_dims[0], 3, padding=1, bias=False),
             nn.GroupNorm(min(8, stage_dims[0]), stage_dims[0]),
-            nn.GELU(),
+            nn.SiLU(inplace=True),
         )
 
         h, w = bev_h, bev_w
@@ -508,7 +508,7 @@ class CenterPointHead(nn.Module):
             # FIX: GroupNorm — detection head operates at 1/8 spatial scale
             # (64×64 for 512 input), batch=2; BN unreliable here too.
             nn.GroupNorm(min(8, hidden), hidden),
-            nn.GELU(),
+            nn.SiLU(inplace=True),
         )
         self.heatmap = nn.Conv2d(hidden, self.NUM_CLASSES, 1)
         self.reg     = nn.Conv2d(hidden, self.REG_DIMS,    1)
@@ -549,7 +549,22 @@ class BEVWaveFormer(nn.Module):
         self.scatter  = BEVScatter(bev_h, bev_w)
         self.backbone = WPOBackbone(pillar_out_ch, stage_dims, depths,
                                     bev_h, bev_w, use_checkpoint)
-        self.head     = CenterPointHead(stage_dims[-1])
+
+        # --- V2: Lightweight U-Net FPN Neck (64 Channels to save VRAM) ---
+        fpn_dim = 64
+        # Stage 4 (64x64) -> Compress to 64ch -> Upsample to 128x128
+        self.fpn_s4_shrink = nn.Sequential(nn.Conv2d(stage_dims[3], fpn_dim, 1, bias=False), nn.GroupNorm(8, fpn_dim), nn.SiLU(inplace=True))
+        self.fpn_s4_up     = nn.ConvTranspose2d(fpn_dim, fpn_dim, kernel_size=2, stride=2)
+        
+        # Stage 3 (128x128) -> Compress to 64ch -> Upsample to 256x256
+        self.fpn_s3_shrink = nn.Sequential(nn.Conv2d(stage_dims[2], fpn_dim, 1, bias=False), nn.GroupNorm(8, fpn_dim), nn.SiLU(inplace=True))
+        self.fpn_s3_up     = nn.ConvTranspose2d(fpn_dim, fpn_dim, kernel_size=2, stride=2)
+        
+        # Stage 2 (256x256) -> Compress to 64ch
+        self.fpn_s2_shrink = nn.Sequential(nn.Conv2d(stage_dims[1], fpn_dim, 1, bias=False), nn.GroupNorm(8, fpn_dim), nn.SiLU(inplace=True))
+
+        # Head now takes the High-Res 256x256 fused map!
+        self.head = CenterPointHead(in_channels=fpn_dim)
 
         self._init_weights()
 
@@ -581,6 +596,16 @@ class BEVWaveFormer(nn.Module):
         pillar_feats      = self.vfe(pillars, num_points)
         bev               = self.scatter(pillar_feats, coords, batch_size)
         multi_scale_feats = self.backbone(bev)
-        preds             = self.head(multi_scale_feats[-1])
+        
+        # --- V2: FPN Fusion (Bottom-up U-Net connections) ---
+        s2 = multi_scale_feats[1] # (B, 192, 256, 256)
+        s3 = multi_scale_feats[2] # (B, 384, 128, 128)
+        s4 = multi_scale_feats[3] # (B, 768, 64,  64)
+
+        f4 = self.fpn_s4_up(self.fpn_s4_shrink(s4))           # 64x64   -> 128x128
+        f3 = self.fpn_s3_up(f4 + self.fpn_s3_shrink(s3))      # 128x128 -> 256x256
+        fused_256 = f3 + self.fpn_s2_shrink(s2)               # Add sharp 256x256 features
+        
+        preds = self.head(fused_256)
 
         return preds
