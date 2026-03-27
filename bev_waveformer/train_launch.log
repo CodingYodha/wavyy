@@ -1,0 +1,587 @@
+[2026-03-24 20:21:05][INFO] World size: 7  |  Device: cuda:0
+[2026-03-24 20:21:05][INFO] Per-rank batch: 3  |  Effective global batch: 21
+[2026-03-24 20:21:07][INFO] Model parameters: 25.0 M
+/home/shivaprasadgowda/miniconda3/envs/treewave/lib/python3.10/site-packages/torch/autograd/graph.py:865: UserWarning: Grad strides do not match bucket view strides. This may indicate grad was not created according to the gradient layout contract, or that the param's strides changed since DDP was constructed.  This is not an error, but may impair performance.
+grad.sizes() = [768, 768, 1, 1], strides() = [768, 1, 768, 768]
+bucket_view.sizes() = [768, 768, 1, 1], strides() = [768, 1, 1, 1] (Triggered internally at /pytorch/torch/csrc/distributed/c10d/reducer.cpp:330.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/home/shivaprasadgowda/miniconda3/envs/treewave/lib/python3.10/site-packages/torch/autograd/graph.py:865: UserWarning: Grad strides do not match bucket view strides. This may indicate grad was not created according to the gradient layout contract, or that the param's strides changed since DDP was constructed.  This is not an error, but may impair performance.
+grad.sizes() = [768, 768, 1, 1], strides() = [768, 1, 768, 768]
+bucket_view.sizes() = [768, 768, 1, 1], strides() = [768, 1, 1, 1] (Triggered internally at /pytorch/torch/csrc/distributed/c10d/reducer.cpp:330.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/home/shivaprasadgowda/miniconda3/envs/treewave/lib/python3.10/site-packages/torch/autograd/graph.py:865: UserWarning: Grad strides do not match bucket view strides. This may indicate grad was not created according to the gradient layout contract, or that the param's strides changed since DDP was constructed.  This is not an error, but may impair performance.
+grad.sizes() = [768, 768, 1, 1], strides() = [768, 1, 768, 768]
+bucket_view.sizes() = [768, 768, 1, 1], strides() = [768, 1, 1, 1] (Triggered internally at /pytorch/torch/csrc/distributed/c10d/reducer.cpp:330.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/home/shivaprasadgowda/miniconda3/envs/treewave/lib/python3.10/site-packages/torch/autograd/graph.py:865: UserWarning: Grad strides do not match bucket view strides. This may indicate grad was not created according to the gradient layout contract, or that the param's strides changed since DDP was constructed.  This is not an error, but may impair performance.
+grad.sizes() = [768, 768, 1, 1], strides() = [768, 1, 768, 768]
+bucket_view.sizes() = [768, 768, 1, 1], strides() = [768, 1, 1, 1] (Triggered internally at /pytorch/torch/csrc/distributed/c10d/reducer.cpp:330.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/home/shivaprasadgowda/miniconda3/envs/treewave/lib/python3.10/site-packages/torch/autograd/graph.py:865: UserWarning: Grad strides do not match bucket view strides. This may indicate grad was not created according to the gradient layout contract, or that the param's strides changed since DDP was constructed.  This is not an error, but may impair performance.
+grad.sizes() = [768, 768, 1, 1], strides() = [768, 1, 768, 768]
+bucket_view.sizes() = [768, 768, 1, 1], strides() = [768, 1, 1, 1] (Triggered internally at /pytorch/torch/csrc/distributed/c10d/reducer.cpp:330.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/home/shivaprasadgowda/miniconda3/envs/treewave/lib/python3.10/site-packages/torch/autograd/graph.py:865: UserWarning: Grad strides do not match bucket view strides. This may indicate grad was not created according to the gradient layout contract, or that the param's strides changed since DDP was constructed.  This is not an error, but may impair performance.
+grad.sizes() = [768, 768, 1, 1], strides() = [768, 1, 768, 768]
+bucket_view.sizes() = [768, 768, 1, 1], strides() = [768, 1, 1, 1] (Triggered internally at /pytorch/torch/csrc/distributed/c10d/reducer.cpp:330.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/home/shivaprasadgowda/miniconda3/envs/treewave/lib/python3.10/site-packages/torch/autograd/graph.py:865: UserWarning: Grad strides do not match bucket view strides. This may indicate grad was not created according to the gradient layout contract, or that the param's strides changed since DDP was constructed.  This is not an error, but may impair performance.
+grad.sizes() = [768, 768, 1, 1], strides() = [768, 1, 768, 768]
+bucket_view.sizes() = [768, 768, 1, 1], strides() = [768, 1, 1, 1] (Triggered internally at /pytorch/torch/csrc/distributed/c10d/reducer.cpp:330.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[2026-03-24 20:21:12][INFO] Epoch 0000 | Step 00000/00177 | loss=892.4240 | grad_norm=17582.791 | max_norm=0.100 | 5.0s elapsed
+[2026-03-24 20:23:10][INFO] Epoch 0000 | Step 00050/00177 | loss=56.0901 | grad_norm=78.458 | max_norm=0.100 | 122.9s elapsed
+[2026-03-24 20:28:47][INFO] Epoch 0000 | Step 00100/00177 | loss=48.7144 | grad_norm=95.871 | max_norm=0.100 | 460.3s elapsed
+[2026-03-24 20:34:28][INFO] Epoch 0000 | Step 00150/00177 | loss=34.5381 | grad_norm=219.899 | max_norm=0.100 | 801.2s elapsed
+[2026-03-24 20:43:39][INFO] Epoch 0000 | VAL loss=16.6901
+[2026-03-24 20:43:39][INFO] ─── Epoch 0000 | train=57.8658 | val=16.6901 | lr=1.00e-04 ───
+[2026-03-24 20:43:39][INFO]   ↳ New best val loss: 16.6901
+/home/shivaprasadgowda/miniconda3/envs/treewave/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+[2026-03-24 20:43:46][INFO] Epoch 0001 | Step 00000/00177 | loss=43.9141 | grad_norm=128.389 | max_norm=0.190 | 7.2s elapsed
+[2026-03-24 20:49:28][INFO] Epoch 0001 | Step 00050/00177 | loss=26.5429 | grad_norm=217.339 | max_norm=0.190 | 349.6s elapsed
+[2026-03-24 20:55:13][INFO] Epoch 0001 | Step 00100/00177 | loss=18.2207 | grad_norm=275.375 | max_norm=0.190 | 693.6s elapsed
+[2026-03-24 21:00:57][INFO] Epoch 0001 | Step 00150/00177 | loss=23.2699 | grad_norm=332.790 | max_norm=0.190 | 1038.6s elapsed
+[2026-03-24 21:10:05][INFO] Epoch 0001 | VAL loss=12.8308
+[2026-03-24 21:10:05][INFO] ─── Epoch 0001 | train=27.4836 | val=12.8308 | lr=1.00e-04 ───
+[2026-03-24 21:10:05][INFO]   ↳ New best val loss: 12.8308
+[2026-03-24 21:10:12][INFO] Epoch 0002 | Step 00000/00177 | loss=16.4781 | grad_norm=411.227 | max_norm=0.280 | 7.0s elapsed
+[2026-03-24 21:15:58][INFO] Epoch 0002 | Step 00050/00177 | loss=24.3997 | grad_norm=340.837 | max_norm=0.280 | 353.0s elapsed
+[2026-03-24 21:21:44][INFO] Epoch 0002 | Step 00100/00177 | loss=33.0061 | grad_norm=240.021 | max_norm=0.280 | 698.7s elapsed
+[2026-03-24 21:27:30][INFO] Epoch 0002 | Step 00150/00177 | loss=9.1063 | grad_norm=496.421 | max_norm=0.280 | 1045.2s elapsed
+[2026-03-24 21:36:28][INFO] Epoch 0002 | VAL loss=9.5492
+[2026-03-24 21:36:28][INFO] ─── Epoch 0002 | train=18.2223 | val=9.5492 | lr=9.99e-05 ───
+[2026-03-24 21:36:29][INFO]   ↳ New best val loss: 9.5492
+[2026-03-24 21:36:36][INFO] Epoch 0003 | Step 00000/00177 | loss=9.2517 | grad_norm=203.797 | max_norm=0.370 | 7.1s elapsed
+[2026-03-24 21:42:19][INFO] Epoch 0003 | Step 00050/00177 | loss=9.0581 | grad_norm=230.324 | max_norm=0.370 | 350.5s elapsed
+[2026-03-24 21:48:01][INFO] Epoch 0003 | Step 00100/00177 | loss=33.0737 | grad_norm=231.908 | max_norm=0.370 | 692.8s elapsed
+[2026-03-24 21:53:45][INFO] Epoch 0003 | Step 00150/00177 | loss=17.5068 | grad_norm=311.291 | max_norm=0.370 | 1036.1s elapsed
+[2026-03-24 22:02:39][INFO] Epoch 0003 | VAL loss=4.4169
+[2026-03-24 22:02:39][INFO] ─── Epoch 0003 | train=11.8017 | val=4.4169 | lr=9.98e-05 ───
+[2026-03-24 22:02:39][INFO]   ↳ New best val loss: 4.4169
+[2026-03-24 22:02:46][INFO] Epoch 0004 | Step 00000/00177 | loss=4.4326 | grad_norm=317.267 | max_norm=0.460 | 7.0s elapsed
+[2026-03-24 22:08:28][INFO] Epoch 0004 | Step 00050/00177 | loss=10.7136 | grad_norm=241.032 | max_norm=0.460 | 349.5s elapsed
+[2026-03-24 22:14:11][INFO] Epoch 0004 | Step 00100/00177 | loss=7.1507 | grad_norm=238.964 | max_norm=0.460 | 691.7s elapsed
+[2026-03-24 22:19:51][INFO] Epoch 0004 | Step 00150/00177 | loss=6.1246 | grad_norm=178.009 | max_norm=0.460 | 1032.4s elapsed
+[2026-03-24 22:28:45][INFO] Epoch 0004 | VAL loss=2.6015
+[2026-03-24 22:28:45][INFO] ─── Epoch 0004 | train=9.8344 | val=2.6015 | lr=9.98e-05 ───
+[2026-03-24 22:28:46][INFO]   ↳ New best val loss: 2.6015
+[2026-03-24 22:28:53][INFO] Epoch 0005 | Step 00000/00177 | loss=5.7437 | grad_norm=278.731 | max_norm=0.550 | 7.0s elapsed
+[2026-03-24 22:34:38][INFO] Epoch 0005 | Step 00050/00177 | loss=7.5068 | grad_norm=379.016 | max_norm=0.550 | 352.5s elapsed
+[2026-03-24 22:40:22][INFO] Epoch 0005 | Step 00100/00177 | loss=5.4111 | grad_norm=218.244 | max_norm=0.550 | 696.4s elapsed
+[2026-03-24 22:46:03][INFO] Epoch 0005 | Step 00150/00177 | loss=32.2302 | grad_norm=324.685 | max_norm=0.550 | 1037.0s elapsed
+[2026-03-24 22:54:58][INFO] Epoch 0005 | VAL loss=2.9970
+[2026-03-24 22:54:58][INFO] ─── Epoch 0005 | train=8.2053 | val=2.9970 | lr=9.97e-05 ───
+[2026-03-24 22:55:05][INFO] Epoch 0006 | Step 00000/00177 | loss=12.3948 | grad_norm=190.139 | max_norm=0.640 | 7.1s elapsed
+[2026-03-24 23:00:46][INFO] Epoch 0006 | Step 00050/00177 | loss=5.6609 | grad_norm=197.691 | max_norm=0.640 | 347.6s elapsed
+[2026-03-24 23:06:22][INFO] Epoch 0006 | Step 00100/00177 | loss=6.2508 | grad_norm=196.466 | max_norm=0.640 | 683.8s elapsed
+[2026-03-24 23:12:08][INFO] Epoch 0006 | Step 00150/00177 | loss=6.4305 | grad_norm=250.467 | max_norm=0.640 | 1029.3s elapsed
+[2026-03-24 23:20:57][INFO] Epoch 0006 | VAL loss=3.9972
+[2026-03-24 23:20:57][INFO] ─── Epoch 0006 | train=6.2345 | val=3.9972 | lr=9.95e-05 ───
+[2026-03-24 23:21:04][INFO] Epoch 0007 | Step 00000/00177 | loss=4.6775 | grad_norm=643.241 | max_norm=0.730 | 7.1s elapsed
+[2026-03-24 23:26:42][INFO] Epoch 0007 | Step 00050/00177 | loss=4.3433 | grad_norm=335.598 | max_norm=0.730 | 345.6s elapsed
+[2026-03-24 23:32:31][INFO] Epoch 0007 | Step 00100/00177 | loss=5.8536 | grad_norm=284.411 | max_norm=0.730 | 693.8s elapsed
+[2026-03-24 23:38:15][INFO] Epoch 0007 | Step 00150/00177 | loss=6.3565 | grad_norm=283.276 | max_norm=0.730 | 1038.4s elapsed
+[2026-03-24 23:47:06][INFO] Epoch 0007 | VAL loss=1.9888
+[2026-03-24 23:47:06][INFO] ─── Epoch 0007 | train=5.8139 | val=1.9888 | lr=9.94e-05 ───
+[2026-03-24 23:47:07][INFO]   ↳ New best val loss: 1.9888
+[2026-03-24 23:47:14][INFO] Epoch 0008 | Step 00000/00177 | loss=6.3181 | grad_norm=206.084 | max_norm=0.820 | 7.1s elapsed
+[2026-03-24 23:53:00][INFO] Epoch 0008 | Step 00050/00177 | loss=3.8926 | grad_norm=163.017 | max_norm=0.820 | 352.9s elapsed
+[2026-03-24 23:58:41][INFO] Epoch 0008 | Step 00100/00177 | loss=5.3067 | grad_norm=412.670 | max_norm=0.820 | 694.7s elapsed
+[2026-03-25 00:04:25][INFO] Epoch 0008 | Step 00150/00177 | loss=4.5913 | grad_norm=210.740 | max_norm=0.820 | 1038.4s elapsed
+[2026-03-25 00:13:15][INFO] Epoch 0008 | VAL loss=3.5330
+[2026-03-25 00:13:15][INFO] ─── Epoch 0008 | train=5.4077 | val=3.5330 | lr=9.92e-05 ───
+[2026-03-25 00:13:22][INFO] Epoch 0009 | Step 00000/00177 | loss=4.3031 | grad_norm=184.933 | max_norm=0.910 | 7.2s elapsed
+[2026-03-25 00:19:04][INFO] Epoch 0009 | Step 00050/00177 | loss=5.7208 | grad_norm=252.159 | max_norm=0.910 | 348.9s elapsed
+[2026-03-25 00:24:47][INFO] Epoch 0009 | Step 00100/00177 | loss=3.3227 | grad_norm=187.159 | max_norm=0.910 | 691.9s elapsed
+[2026-03-25 00:30:31][INFO] Epoch 0009 | Step 00150/00177 | loss=5.3609 | grad_norm=151.484 | max_norm=0.910 | 1036.2s elapsed
+[2026-03-25 00:39:20][INFO] Epoch 0009 | VAL loss=3.6989
+[2026-03-25 00:39:20][INFO] ─── Epoch 0009 | train=5.2116 | val=3.6989 | lr=9.90e-05 ───
+[2026-03-25 00:39:27][INFO] Epoch 0010 | Step 00000/00177 | loss=3.6797 | grad_norm=178.110 | max_norm=1.000 | 7.0s elapsed
+[2026-03-25 00:45:08][INFO] Epoch 0010 | Step 00050/00177 | loss=4.5658 | grad_norm=190.279 | max_norm=1.000 | 348.4s elapsed
+[2026-03-25 00:50:57][INFO] Epoch 0010 | Step 00100/00177 | loss=3.4776 | grad_norm=131.928 | max_norm=1.000 | 697.4s elapsed
+[2026-03-25 00:56:40][INFO] Epoch 0010 | Step 00150/00177 | loss=4.8562 | grad_norm=265.960 | max_norm=1.000 | 1039.9s elapsed
+[2026-03-25 01:05:25][INFO] Epoch 0010 | VAL loss=1.7678
+[2026-03-25 01:05:25][INFO] ─── Epoch 0010 | train=4.8882 | val=1.7678 | lr=9.88e-05 ───
+[2026-03-25 01:05:25][INFO]   ↳ New best val loss: 1.7678
+[2026-03-25 01:05:32][INFO] Epoch 0011 | Step 00000/00177 | loss=5.1751 | grad_norm=204.255 | max_norm=1.000 | 7.0s elapsed
+[2026-03-25 01:11:20][INFO] Epoch 0011 | Step 00050/00177 | loss=4.0916 | grad_norm=398.633 | max_norm=1.000 | 354.5s elapsed
+[2026-03-25 01:17:02][INFO] Epoch 0011 | Step 00100/00177 | loss=3.7665 | grad_norm=101.095 | max_norm=1.000 | 697.1s elapsed
+[2026-03-25 01:22:45][INFO] Epoch 0011 | Step 00150/00177 | loss=3.1661 | grad_norm=203.379 | max_norm=1.000 | 1039.7s elapsed
+[2026-03-25 01:31:27][INFO] Epoch 0011 | VAL loss=3.4410
+[2026-03-25 01:31:27][INFO] ─── Epoch 0011 | train=4.7752 | val=3.4410 | lr=9.86e-05 ───
+[2026-03-25 01:31:34][INFO] Epoch 0012 | Step 00000/00177 | loss=3.8033 | grad_norm=185.375 | max_norm=1.000 | 7.0s elapsed
+[2026-03-25 01:37:21][INFO] Epoch 0012 | Step 00050/00177 | loss=3.0883 | grad_norm=152.672 | max_norm=1.000 | 353.9s elapsed
+[2026-03-25 01:43:03][INFO] Epoch 0012 | Step 00100/00177 | loss=4.9724 | grad_norm=222.177 | max_norm=1.000 | 695.7s elapsed
+[2026-03-25 01:48:46][INFO] Epoch 0012 | Step 00150/00177 | loss=4.3328 | grad_norm=158.613 | max_norm=1.000 | 1039.1s elapsed
+[2026-03-25 01:57:28][INFO] Epoch 0012 | VAL loss=2.3764
+[2026-03-25 01:57:28][INFO] ─── Epoch 0012 | train=4.5351 | val=2.3764 | lr=9.84e-05 ───
+[2026-03-25 01:57:35][INFO] Epoch 0013 | Step 00000/00177 | loss=6.3622 | grad_norm=160.096 | max_norm=1.000 | 7.0s elapsed
+[2026-03-25 02:03:22][INFO] Epoch 0013 | Step 00050/00177 | loss=4.9174 | grad_norm=175.842 | max_norm=1.000 | 354.2s elapsed
+[2026-03-25 02:09:07][INFO] Epoch 0013 | Step 00100/00177 | loss=4.9770 | grad_norm=207.037 | max_norm=1.000 | 699.4s elapsed
+[2026-03-25 02:14:53][INFO] Epoch 0013 | Step 00150/00177 | loss=3.9487 | grad_norm=174.789 | max_norm=1.000 | 1044.6s elapsed
+[2026-03-25 02:23:37][INFO] Epoch 0013 | VAL loss=1.8346
+[2026-03-25 02:23:37][INFO] ─── Epoch 0013 | train=4.4307 | val=1.8346 | lr=9.81e-05 ───
+[2026-03-25 02:23:43][INFO] Epoch 0014 | Step 00000/00177 | loss=4.8989 | grad_norm=215.793 | max_norm=1.000 | 7.0s elapsed
+[2026-03-25 02:29:27][INFO] Epoch 0014 | Step 00050/00177 | loss=3.7770 | grad_norm=78.269 | max_norm=1.000 | 350.2s elapsed
+[2026-03-25 02:35:07][INFO] Epoch 0014 | Step 00100/00177 | loss=4.1102 | grad_norm=149.556 | max_norm=1.000 | 691.0s elapsed
+[2026-03-25 02:40:48][INFO] Epoch 0014 | Step 00150/00177 | loss=4.5273 | grad_norm=119.259 | max_norm=1.000 | 1031.5s elapsed
+[2026-03-25 02:49:35][INFO] Epoch 0014 | VAL loss=2.8447
+[2026-03-25 02:49:35][INFO] ─── Epoch 0014 | train=4.1980 | val=2.8447 | lr=9.79e-05 ───
+[2026-03-25 02:49:43][INFO] Epoch 0015 | Step 00000/00177 | loss=2.7011 | grad_norm=204.303 | max_norm=1.000 | 7.0s elapsed
+[2026-03-25 02:55:25][INFO] Epoch 0015 | Step 00050/00177 | loss=3.5615 | grad_norm=79.835 | max_norm=1.000 | 349.5s elapsed
+[2026-03-25 03:01:05][INFO] Epoch 0015 | Step 00100/00177 | loss=4.0387 | grad_norm=183.168 | max_norm=1.000 | 689.3s elapsed
+[2026-03-25 03:06:52][INFO] Epoch 0015 | Step 00150/00177 | loss=3.7856 | grad_norm=454.529 | max_norm=1.000 | 1036.5s elapsed
+[2026-03-25 03:15:34][INFO] Epoch 0015 | VAL loss=1.9393
+[2026-03-25 03:15:34][INFO] ─── Epoch 0015 | train=4.3075 | val=1.9393 | lr=9.76e-05 ───
+[2026-03-25 03:15:41][INFO] Epoch 0016 | Step 00000/00177 | loss=4.0311 | grad_norm=88.000 | max_norm=1.000 | 7.0s elapsed
+[2026-03-25 03:21:24][INFO] Epoch 0016 | Step 00050/00177 | loss=4.6625 | grad_norm=217.383 | max_norm=1.000 | 349.8s elapsed
+[2026-03-25 03:27:07][INFO] Epoch 0016 | Step 00100/00177 | loss=5.0882 | grad_norm=88.814 | max_norm=1.000 | 692.9s elapsed
+[2026-03-25 03:32:50][INFO] Epoch 0016 | Step 00150/00177 | loss=3.5286 | grad_norm=155.985 | max_norm=1.000 | 1035.9s elapsed
+[2026-03-25 03:41:33][INFO] Epoch 0016 | VAL loss=2.6592
+[2026-03-25 03:41:33][INFO] ─── Epoch 0016 | train=4.1612 | val=2.6592 | lr=9.73e-05 ───
+[2026-03-25 03:41:40][INFO] Epoch 0017 | Step 00000/00177 | loss=2.9623 | grad_norm=87.001 | max_norm=1.000 | 7.0s elapsed
+[2026-03-25 03:47:24][INFO] Epoch 0017 | Step 00050/00177 | loss=4.1556 | grad_norm=167.180 | max_norm=1.000 | 350.9s elapsed
+[2026-03-25 03:53:05][INFO] Epoch 0017 | Step 00100/00177 | loss=4.2788 | grad_norm=125.717 | max_norm=1.000 | 691.8s elapsed
+[2026-03-25 03:58:46][INFO] Epoch 0017 | Step 00150/00177 | loss=4.2659 | grad_norm=163.643 | max_norm=1.000 | 1033.3s elapsed
+[2026-03-25 04:07:27][INFO] Epoch 0017 | VAL loss=4.7407
+[2026-03-25 04:07:27][INFO] ─── Epoch 0017 | train=4.1204 | val=4.7407 | lr=9.69e-05 ───
+[2026-03-25 04:07:34][INFO] Epoch 0018 | Step 00000/00177 | loss=4.6754 | grad_norm=145.868 | max_norm=1.000 | 7.0s elapsed
+[2026-03-25 04:13:18][INFO] Epoch 0018 | Step 00050/00177 | loss=5.2188 | grad_norm=192.465 | max_norm=1.000 | 350.7s elapsed
+[2026-03-25 04:19:04][INFO] Epoch 0018 | Step 00100/00177 | loss=4.2380 | grad_norm=201.563 | max_norm=1.000 | 697.1s elapsed
+[2026-03-25 04:24:47][INFO] Epoch 0018 | Step 00150/00177 | loss=3.8095 | grad_norm=169.475 | max_norm=1.000 | 1039.8s elapsed
+[2026-03-25 04:33:25][INFO] Epoch 0018 | VAL loss=5.2929
+[2026-03-25 04:33:25][INFO] ─── Epoch 0018 | train=4.0743 | val=5.2929 | lr=9.66e-05 ───
+[2026-03-25 04:33:32][INFO] Epoch 0019 | Step 00000/00177 | loss=3.7224 | grad_norm=148.595 | max_norm=1.000 | 6.9s elapsed
+[2026-03-25 04:39:12][INFO] Epoch 0019 | Step 00050/00177 | loss=3.7912 | grad_norm=236.988 | max_norm=1.000 | 347.3s elapsed
+[2026-03-25 04:44:55][INFO] Epoch 0019 | Step 00100/00177 | loss=4.9869 | grad_norm=260.812 | max_norm=1.000 | 689.9s elapsed
+[2026-03-25 04:50:38][INFO] Epoch 0019 | Step 00150/00177 | loss=4.6828 | grad_norm=86.245 | max_norm=1.000 | 1033.6s elapsed
+[2026-03-25 04:59:22][INFO] Epoch 0019 | VAL loss=2.3225
+[2026-03-25 04:59:22][INFO] ─── Epoch 0019 | train=3.9929 | val=2.3225 | lr=9.62e-05 ───
+[2026-03-25 04:59:29][INFO] Epoch 0020 | Step 00000/00177 | loss=3.8329 | grad_norm=171.074 | max_norm=1.000 | 7.0s elapsed
+[2026-03-25 05:05:11][INFO] Epoch 0020 | Step 00050/00177 | loss=4.9282 | grad_norm=142.530 | max_norm=1.000 | 348.5s elapsed
+[2026-03-25 05:10:55][INFO] Epoch 0020 | Step 00100/00177 | loss=2.6106 | grad_norm=146.276 | max_norm=1.000 | 692.7s elapsed
+[2026-03-25 05:16:36][INFO] Epoch 0020 | Step 00150/00177 | loss=5.0655 | grad_norm=178.912 | max_norm=1.000 | 1033.9s elapsed
+[2026-03-25 05:25:18][INFO] Epoch 0020 | VAL loss=2.8340
+[2026-03-25 05:25:18][INFO] ─── Epoch 0020 | train=3.9510 | val=2.8340 | lr=9.59e-05 ───
+[2026-03-25 05:25:25][INFO] Epoch 0021 | Step 00000/00177 | loss=2.6969 | grad_norm=120.856 | max_norm=1.000 | 7.0s elapsed
+[2026-03-25 05:31:07][INFO] Epoch 0021 | Step 00050/00177 | loss=3.3979 | grad_norm=119.336 | max_norm=1.000 | 348.0s elapsed
+[2026-03-25 05:36:46][INFO] Epoch 0021 | Step 00100/00177 | loss=4.3097 | grad_norm=156.461 | max_norm=1.000 | 687.1s elapsed
+[2026-03-25 05:42:30][INFO] Epoch 0021 | Step 00150/00177 | loss=4.6521 | grad_norm=81.601 | max_norm=1.000 | 1031.2s elapsed
+[2026-03-25 05:51:12][INFO] Epoch 0021 | VAL loss=4.0726
+[2026-03-25 05:51:12][INFO] ─── Epoch 0021 | train=3.8920 | val=4.0726 | lr=9.55e-05 ───
+[2026-03-25 05:51:19][INFO] Epoch 0022 | Step 00000/00177 | loss=4.2580 | grad_norm=159.428 | max_norm=1.000 | 7.0s elapsed
+[2026-03-25 05:56:58][INFO] Epoch 0022 | Step 00050/00177 | loss=3.4842 | grad_norm=153.990 | max_norm=1.000 | 345.9s elapsed
+[2026-03-25 06:02:40][INFO] Epoch 0022 | Step 00100/00177 | loss=3.4345 | grad_norm=100.324 | max_norm=1.000 | 688.6s elapsed
+[2026-03-25 06:08:21][INFO] Epoch 0022 | Step 00150/00177 | loss=4.0337 | grad_norm=124.746 | max_norm=1.000 | 1029.5s elapsed
+[2026-03-25 06:17:05][INFO] Epoch 0022 | VAL loss=4.4309
+[2026-03-25 06:17:05][INFO] ─── Epoch 0022 | train=3.8981 | val=4.4309 | lr=9.50e-05 ───
+[2026-03-25 06:17:12][INFO] Epoch 0023 | Step 00000/00177 | loss=4.0748 | grad_norm=103.255 | max_norm=1.000 | 7.0s elapsed
+[2026-03-25 06:22:52][INFO] Epoch 0023 | Step 00050/00177 | loss=2.8196 | grad_norm=192.626 | max_norm=1.000 | 346.8s elapsed
+[2026-03-25 06:28:35][INFO] Epoch 0023 | Step 00100/00177 | loss=2.4625 | grad_norm=52.111 | max_norm=1.000 | 690.2s elapsed
+[2026-03-25 06:34:19][INFO] Epoch 0023 | Step 00150/00177 | loss=3.6846 | grad_norm=148.090 | max_norm=1.000 | 1033.7s elapsed
+[2026-03-25 06:42:57][INFO] Epoch 0023 | VAL loss=3.3729
+[2026-03-25 06:42:57][INFO] ─── Epoch 0023 | train=3.9442 | val=3.3729 | lr=9.46e-05 ───
+[2026-03-25 06:43:04][INFO] Epoch 0024 | Step 00000/00177 | loss=4.1142 | grad_norm=172.853 | max_norm=1.000 | 7.1s elapsed
+[2026-03-25 06:48:45][INFO] Epoch 0024 | Step 00050/00177 | loss=3.6700 | grad_norm=129.247 | max_norm=1.000 | 348.6s elapsed
+[2026-03-25 06:54:26][INFO] Epoch 0024 | Step 00100/00177 | loss=3.2939 | grad_norm=148.790 | max_norm=1.000 | 689.1s elapsed
+[2026-03-25 07:00:05][INFO] Epoch 0024 | Step 00150/00177 | loss=4.1460 | grad_norm=196.533 | max_norm=1.000 | 1028.0s elapsed
+[2026-03-25 07:08:43][INFO] Epoch 0024 | VAL loss=3.3756
+[2026-03-25 07:08:43][INFO] ─── Epoch 0024 | train=3.8940 | val=3.3756 | lr=9.42e-05 ───
+[2026-03-25 07:08:51][INFO] Epoch 0025 | Step 00000/00177 | loss=5.2441 | grad_norm=88.637 | max_norm=1.000 | 7.3s elapsed
+[2026-03-25 07:14:32][INFO] Epoch 0025 | Step 00050/00177 | loss=4.1927 | grad_norm=93.070 | max_norm=1.000 | 349.0s elapsed
+[2026-03-25 07:20:13][INFO] Epoch 0025 | Step 00100/00177 | loss=3.1290 | grad_norm=211.053 | max_norm=1.000 | 689.5s elapsed
+[2026-03-25 07:25:53][INFO] Epoch 0025 | Step 00150/00177 | loss=4.6893 | grad_norm=161.390 | max_norm=1.000 | 1029.1s elapsed
+[2026-03-25 07:34:34][INFO] Epoch 0025 | VAL loss=3.3921
+[2026-03-25 07:34:34][INFO] ─── Epoch 0025 | train=3.8440 | val=3.3921 | lr=9.37e-05 ───
+[2026-03-25 07:34:41][INFO] Epoch 0026 | Step 00000/00177 | loss=2.5201 | grad_norm=83.266 | max_norm=1.000 | 7.1s elapsed
+[2026-03-25 07:40:20][INFO] Epoch 0026 | Step 00050/00177 | loss=3.8733 | grad_norm=231.990 | max_norm=1.000 | 346.0s elapsed
+[2026-03-25 07:45:59][INFO] Epoch 0026 | Step 00100/00177 | loss=2.9265 | grad_norm=101.596 | max_norm=1.000 | 685.6s elapsed
+[2026-03-25 07:51:39][INFO] Epoch 0026 | Step 00150/00177 | loss=3.4089 | grad_norm=101.782 | max_norm=1.000 | 1025.6s elapsed
+[2026-03-25 08:00:18][INFO] Epoch 0026 | VAL loss=4.0461
+[2026-03-25 08:00:18][INFO] ─── Epoch 0026 | train=3.7251 | val=4.0461 | lr=9.32e-05 ───
+[2026-03-25 08:00:25][INFO] Epoch 0027 | Step 00000/00177 | loss=4.1047 | grad_norm=70.949 | max_norm=1.000 | 7.1s elapsed
+[2026-03-25 08:06:06][INFO] Epoch 0027 | Step 00050/00177 | loss=4.0333 | grad_norm=112.368 | max_norm=1.000 | 348.6s elapsed
+[2026-03-25 08:11:48][INFO] Epoch 0027 | Step 00100/00177 | loss=4.4559 | grad_norm=90.431 | max_norm=1.000 | 690.1s elapsed
+[2026-03-25 08:17:27][INFO] Epoch 0027 | Step 00150/00177 | loss=3.7349 | grad_norm=69.408 | max_norm=1.000 | 1029.9s elapsed
+[2026-03-25 08:26:04][INFO] Epoch 0027 | VAL loss=1.7950
+[2026-03-25 08:26:04][INFO] ─── Epoch 0027 | train=3.7742 | val=1.7950 | lr=9.27e-05 ───
+[2026-03-25 08:26:11][INFO] Epoch 0028 | Step 00000/00177 | loss=3.0159 | grad_norm=90.942 | max_norm=1.000 | 7.0s elapsed
+[2026-03-25 08:31:49][INFO] Epoch 0028 | Step 00050/00177 | loss=3.1562 | grad_norm=113.236 | max_norm=1.000 | 345.1s elapsed
+[2026-03-25 08:37:29][INFO] Epoch 0028 | Step 00100/00177 | loss=3.8042 | grad_norm=157.083 | max_norm=1.000 | 685.4s elapsed
+[2026-03-25 08:43:12][INFO] Epoch 0028 | Step 00150/00177 | loss=2.7490 | grad_norm=118.607 | max_norm=1.000 | 1027.6s elapsed
+[2026-03-25 08:51:51][INFO] Epoch 0028 | VAL loss=4.0252
+[2026-03-25 08:51:51][INFO] ─── Epoch 0028 | train=3.6181 | val=4.0252 | lr=9.22e-05 ───
+[2026-03-25 08:51:59][INFO] Epoch 0029 | Step 00000/00177 | loss=4.0594 | grad_norm=82.524 | max_norm=1.000 | 7.4s elapsed
+[2026-03-25 08:57:39][INFO] Epoch 0029 | Step 00050/00177 | loss=4.4653 | grad_norm=122.329 | max_norm=1.000 | 347.6s elapsed
+[2026-03-25 09:03:22][INFO] Epoch 0029 | Step 00100/00177 | loss=3.6002 | grad_norm=155.982 | max_norm=1.000 | 690.3s elapsed
+[2026-03-25 09:09:03][INFO] Epoch 0029 | Step 00150/00177 | loss=3.5335 | grad_norm=95.960 | max_norm=1.000 | 1031.8s elapsed
+[2026-03-25 09:17:46][INFO] Epoch 0029 | VAL loss=3.1751
+[2026-03-25 09:17:46][INFO] ─── Epoch 0029 | train=3.7198 | val=3.1751 | lr=9.17e-05 ───
+[2026-03-25 09:17:54][INFO] Epoch 0030 | Step 00000/00177 | loss=2.7843 | grad_norm=128.675 | max_norm=1.000 | 7.0s elapsed
+[2026-03-25 09:23:34][INFO] Epoch 0030 | Step 00050/00177 | loss=3.2468 | grad_norm=127.017 | max_norm=1.000 | 347.1s elapsed
+[2026-03-25 09:29:15][INFO] Epoch 0030 | Step 00100/00177 | loss=5.0628 | grad_norm=144.652 | max_norm=1.000 | 688.7s elapsed
+[2026-03-25 09:34:58][INFO] Epoch 0030 | Step 00150/00177 | loss=3.1415 | grad_norm=143.079 | max_norm=1.000 | 1031.7s elapsed
+[2026-03-25 09:43:42][INFO] Epoch 0030 | VAL loss=2.9205
+[2026-03-25 09:43:42][INFO] ─── Epoch 0030 | train=3.7436 | val=2.9205 | lr=9.11e-05 ───
+[2026-03-25 09:43:49][INFO] Epoch 0031 | Step 00000/00177 | loss=2.6351 | grad_norm=90.160 | max_norm=1.000 | 7.4s elapsed
+[2026-03-25 09:49:31][INFO] Epoch 0031 | Step 00050/00177 | loss=3.3164 | grad_norm=95.660 | max_norm=1.000 | 349.9s elapsed
+[2026-03-25 09:55:21][INFO] Epoch 0031 | Step 00100/00177 | loss=2.9003 | grad_norm=210.199 | max_norm=1.000 | 699.2s elapsed
+[2026-03-25 10:01:04][INFO] Epoch 0031 | Step 00150/00177 | loss=3.9312 | grad_norm=123.013 | max_norm=1.000 | 1042.7s elapsed
+[2026-03-25 10:09:54][INFO] Epoch 0031 | VAL loss=3.2476
+[2026-03-25 10:09:54][INFO] ─── Epoch 0031 | train=3.6411 | val=3.2476 | lr=9.05e-05 ───
+[2026-03-25 10:10:01][INFO] Epoch 0032 | Step 00000/00177 | loss=2.3487 | grad_norm=72.871 | max_norm=1.000 | 7.0s elapsed
+[2026-03-25 10:15:47][INFO] Epoch 0032 | Step 00050/00177 | loss=3.9081 | grad_norm=50.620 | max_norm=1.000 | 353.6s elapsed
+[2026-03-25 10:21:34][INFO] Epoch 0032 | Step 00100/00177 | loss=3.8211 | grad_norm=72.379 | max_norm=1.000 | 699.8s elapsed
+[2026-03-25 10:27:17][INFO] Epoch 0032 | Step 00150/00177 | loss=3.7919 | grad_norm=122.959 | max_norm=1.000 | 1042.7s elapsed
+[2026-03-25 10:36:04][INFO] Epoch 0032 | VAL loss=2.6998
+[2026-03-25 10:36:04][INFO] ─── Epoch 0032 | train=3.5889 | val=2.6998 | lr=9.00e-05 ───
+[2026-03-25 10:36:11][INFO] Epoch 0033 | Step 00000/00177 | loss=4.4928 | grad_norm=79.877 | max_norm=1.000 | 7.4s elapsed
+[2026-03-25 10:41:51][INFO] Epoch 0033 | Step 00050/00177 | loss=4.2252 | grad_norm=74.957 | max_norm=1.000 | 347.6s elapsed
+[2026-03-25 10:47:33][INFO] Epoch 0033 | Step 00100/00177 | loss=3.3249 | grad_norm=146.452 | max_norm=1.000 | 689.1s elapsed
+[2026-03-25 10:53:21][INFO] Epoch 0033 | Step 00150/00177 | loss=2.7335 | grad_norm=101.797 | max_norm=1.000 | 1037.7s elapsed
+[2026-03-25 11:02:09][INFO] Epoch 0033 | VAL loss=4.6560
+[2026-03-25 11:02:09][INFO] ─── Epoch 0033 | train=3.4982 | val=4.6560 | lr=8.94e-05 ───
+[2026-03-25 11:02:16][INFO] Epoch 0034 | Step 00000/00177 | loss=3.3584 | grad_norm=110.609 | max_norm=1.000 | 7.0s elapsed
+[2026-03-25 11:07:57][INFO] Epoch 0034 | Step 00050/00177 | loss=4.2771 | grad_norm=108.654 | max_norm=1.000 | 348.5s elapsed
+[2026-03-25 11:13:38][INFO] Epoch 0034 | Step 00100/00177 | loss=3.1854 | grad_norm=73.884 | max_norm=1.000 | 689.1s elapsed
+[2026-03-25 11:19:21][INFO] Epoch 0034 | Step 00150/00177 | loss=4.0424 | grad_norm=109.226 | max_norm=1.000 | 1032.4s elapsed
+[2026-03-25 11:28:13][INFO] Epoch 0034 | VAL loss=4.2411
+[2026-03-25 11:28:13][INFO] ─── Epoch 0034 | train=3.4517 | val=4.2411 | lr=8.88e-05 ───
+[2026-03-25 11:28:20][INFO] Epoch 0035 | Step 00000/00177 | loss=5.1317 | grad_norm=80.986 | max_norm=1.000 | 6.9s elapsed
+[2026-03-25 11:34:03][INFO] Epoch 0035 | Step 00050/00177 | loss=4.1613 | grad_norm=86.423 | max_norm=1.000 | 349.6s elapsed
+[2026-03-25 11:39:42][INFO] Epoch 0035 | Step 00100/00177 | loss=3.7919 | grad_norm=89.047 | max_norm=1.000 | 688.3s elapsed
+[2026-03-25 11:45:26][INFO] Epoch 0035 | Step 00150/00177 | loss=2.9560 | grad_norm=171.539 | max_norm=1.000 | 1032.0s elapsed
+[2026-03-25 11:54:19][INFO] Epoch 0035 | VAL loss=4.1136
+[2026-03-25 11:54:19][INFO] ─── Epoch 0035 | train=3.4989 | val=4.1136 | lr=8.81e-05 ───
+[2026-03-25 11:54:26][INFO] Epoch 0036 | Step 00000/00177 | loss=3.7437 | grad_norm=86.397 | max_norm=1.000 | 7.1s elapsed
+[2026-03-25 12:00:09][INFO] Epoch 0036 | Step 00050/00177 | loss=4.0266 | grad_norm=68.325 | max_norm=1.000 | 350.4s elapsed
+[2026-03-25 12:05:50][INFO] Epoch 0036 | Step 00100/00177 | loss=3.9892 | grad_norm=113.850 | max_norm=1.000 | 691.2s elapsed
+[2026-03-25 12:11:38][INFO] Epoch 0036 | Step 00150/00177 | loss=3.0444 | grad_norm=135.825 | max_norm=1.000 | 1038.8s elapsed
+[2026-03-25 12:20:34][INFO] Epoch 0036 | VAL loss=4.0465
+[2026-03-25 12:20:34][INFO] ─── Epoch 0036 | train=3.4948 | val=4.0465 | lr=8.75e-05 ───
+[2026-03-25 12:20:41][INFO] Epoch 0037 | Step 00000/00177 | loss=2.8085 | grad_norm=104.498 | max_norm=1.000 | 7.0s elapsed
+[2026-03-25 12:26:24][INFO] Epoch 0037 | Step 00050/00177 | loss=3.7233 | grad_norm=74.532 | max_norm=1.000 | 350.3s elapsed
+[2026-03-25 12:32:07][INFO] Epoch 0037 | Step 00100/00177 | loss=3.6608 | grad_norm=120.073 | max_norm=1.000 | 693.6s elapsed
+[2026-03-25 12:37:46][INFO] Epoch 0037 | Step 00150/00177 | loss=3.7140 | grad_norm=122.899 | max_norm=1.000 | 1032.4s elapsed
+[2026-03-25 12:46:55][INFO] Epoch 0037 | VAL loss=4.1070
+[2026-03-25 12:46:55][INFO] ─── Epoch 0037 | train=3.3443 | val=4.1070 | lr=8.68e-05 ───
+[2026-03-25 12:47:03][INFO] Epoch 0038 | Step 00000/00177 | loss=4.0383 | grad_norm=76.893 | max_norm=1.000 | 7.2s elapsed
+[2026-03-25 12:52:43][INFO] Epoch 0038 | Step 00050/00177 | loss=3.2738 | grad_norm=146.413 | max_norm=1.000 | 348.1s elapsed
+[2026-03-25 12:58:30][INFO] Epoch 0038 | Step 00100/00177 | loss=3.0759 | grad_norm=113.237 | max_norm=1.000 | 695.1s elapsed
+[2026-03-25 13:04:25][INFO] Epoch 0038 | Step 00150/00177 | loss=3.5958 | grad_norm=113.950 | max_norm=1.000 | 1049.9s elapsed
+[2026-03-25 13:13:45][INFO] Epoch 0038 | VAL loss=2.6963
+[2026-03-25 13:13:45][INFO] ─── Epoch 0038 | train=3.3483 | val=2.6963 | lr=8.62e-05 ───
+[2026-03-25 13:13:52][INFO] Epoch 0039 | Step 00000/00177 | loss=5.2074 | grad_norm=172.946 | max_norm=1.000 | 7.1s elapsed
+[2026-03-25 13:19:42][INFO] Epoch 0039 | Step 00050/00177 | loss=3.2933 | grad_norm=70.376 | max_norm=1.000 | 356.6s elapsed
+[2026-03-25 13:25:42][INFO] Epoch 0039 | Step 00100/00177 | loss=2.9529 | grad_norm=120.395 | max_norm=1.000 | 716.6s elapsed
+[2026-03-25 13:31:46][INFO] Epoch 0039 | Step 00150/00177 | loss=3.2400 | grad_norm=126.105 | max_norm=1.000 | 1080.6s elapsed
+[2026-03-25 13:41:24][INFO] Epoch 0039 | VAL loss=3.9612
+[2026-03-25 13:41:24][INFO] ─── Epoch 0039 | train=3.3394 | val=3.9612 | lr=8.55e-05 ───
+[2026-03-25 13:41:31][INFO] Epoch 0040 | Step 00000/00177 | loss=2.6633 | grad_norm=66.870 | max_norm=1.000 | 7.1s elapsed
+[2026-03-25 13:47:31][INFO] Epoch 0040 | Step 00050/00177 | loss=2.6410 | grad_norm=74.499 | max_norm=1.000 | 367.1s elapsed
+[2026-03-25 13:53:44][INFO] Epoch 0040 | Step 00100/00177 | loss=2.2677 | grad_norm=68.720 | max_norm=1.000 | 740.3s elapsed
+[2026-03-25 13:59:59][INFO] Epoch 0040 | Step 00150/00177 | loss=3.9300 | grad_norm=84.219 | max_norm=1.000 | 1115.6s elapsed
+[2026-03-25 14:10:02][INFO] Epoch 0040 | VAL loss=5.4272
+[2026-03-25 14:10:02][INFO] ─── Epoch 0040 | train=3.2464 | val=5.4272 | lr=8.48e-05 ───
+[2026-03-25 14:10:10][INFO] Epoch 0041 | Step 00000/00177 | loss=3.2394 | grad_norm=93.120 | max_norm=1.000 | 8.0s elapsed
+[2026-03-25 14:16:21][INFO] Epoch 0041 | Step 00050/00177 | loss=5.1038 | grad_norm=163.724 | max_norm=1.000 | 379.6s elapsed
+[2026-03-25 14:22:40][INFO] Epoch 0041 | Step 00100/00177 | loss=3.3718 | grad_norm=89.864 | max_norm=1.000 | 758.1s elapsed
+[2026-03-25 14:29:03][INFO] Epoch 0041 | Step 00150/00177 | loss=3.2781 | grad_norm=142.113 | max_norm=1.000 | 1141.5s elapsed
+[2026-03-25 14:39:13][INFO] Epoch 0041 | VAL loss=2.8713
+[2026-03-25 14:39:13][INFO] ─── Epoch 0041 | train=3.3371 | val=2.8713 | lr=8.41e-05 ───
+[2026-03-25 14:39:21][INFO] Epoch 0042 | Step 00000/00177 | loss=3.4851 | grad_norm=115.338 | max_norm=1.000 | 7.9s elapsed
+[2026-03-25 14:45:33][INFO] Epoch 0042 | Step 00050/00177 | loss=1.6961 | grad_norm=97.113 | max_norm=1.000 | 379.8s elapsed
+[2026-03-25 14:52:00][INFO] Epoch 0042 | Step 00100/00177 | loss=2.4890 | grad_norm=145.050 | max_norm=1.000 | 766.6s elapsed
+[2026-03-25 14:58:23][INFO] Epoch 0042 | Step 00150/00177 | loss=3.3096 | grad_norm=91.325 | max_norm=1.000 | 1149.3s elapsed
+[2026-03-25 15:08:42][INFO] Epoch 0042 | VAL loss=4.2480
+[2026-03-25 15:08:42][INFO] ─── Epoch 0042 | train=3.2097 | val=4.2480 | lr=8.34e-05 ───
+[2026-03-25 15:08:49][INFO] Epoch 0043 | Step 00000/00177 | loss=2.3098 | grad_norm=109.113 | max_norm=1.000 | 7.9s elapsed
+[2026-03-25 15:15:08][INFO] Epoch 0043 | Step 00050/00177 | loss=3.5927 | grad_norm=111.980 | max_norm=1.000 | 386.6s elapsed
+[2026-03-25 15:21:34][INFO] Epoch 0043 | Step 00100/00177 | loss=2.4529 | grad_norm=73.530 | max_norm=1.000 | 772.2s elapsed
+[2026-03-25 15:27:53][INFO] Epoch 0043 | Step 00150/00177 | loss=3.0178 | grad_norm=120.905 | max_norm=1.000 | 1151.5s elapsed
+[2026-03-25 15:37:53][INFO] Epoch 0043 | VAL loss=3.7286
+[2026-03-25 15:37:53][INFO] ─── Epoch 0043 | train=3.1511 | val=3.7286 | lr=8.26e-05 ───
+[2026-03-25 15:38:00][INFO] Epoch 0044 | Step 00000/00177 | loss=2.4779 | grad_norm=85.063 | max_norm=1.000 | 7.4s elapsed
+[2026-03-25 15:44:04][INFO] Epoch 0044 | Step 00050/00177 | loss=2.3334 | grad_norm=139.409 | max_norm=1.000 | 371.5s elapsed
+[2026-03-25 15:50:16][INFO] Epoch 0044 | Step 00100/00177 | loss=5.8811 | grad_norm=84.071 | max_norm=1.000 | 742.9s elapsed
+[2026-03-25 15:56:32][INFO] Epoch 0044 | Step 00150/00177 | loss=2.6677 | grad_norm=82.213 | max_norm=1.000 | 1119.8s elapsed
+[2026-03-25 16:06:25][INFO] Epoch 0044 | VAL loss=4.7035
+[2026-03-25 16:06:25][INFO] ─── Epoch 0044 | train=3.1343 | val=4.7035 | lr=8.19e-05 ───
+[2026-03-25 16:06:32][INFO] Epoch 0045 | Step 00000/00177 | loss=2.3739 | grad_norm=90.889 | max_norm=1.000 | 7.4s elapsed
+[2026-03-25 16:12:36][INFO] Epoch 0045 | Step 00050/00177 | loss=2.7945 | grad_norm=127.995 | max_norm=1.000 | 370.8s elapsed
+[2026-03-25 16:18:49][INFO] Epoch 0045 | Step 00100/00177 | loss=2.9409 | grad_norm=79.464 | max_norm=1.000 | 743.8s elapsed
+[2026-03-25 16:25:12][INFO] Epoch 0045 | Step 00150/00177 | loss=3.3924 | grad_norm=103.418 | max_norm=1.000 | 1126.8s elapsed
+[2026-03-25 16:35:20][INFO] Epoch 0045 | VAL loss=2.7216
+[2026-03-25 16:35:20][INFO] ─── Epoch 0045 | train=3.1074 | val=2.7216 | lr=8.11e-05 ───
+[2026-03-25 16:35:27][INFO] Epoch 0046 | Step 00000/00177 | loss=2.3258 | grad_norm=82.883 | max_norm=1.000 | 7.5s elapsed
+[2026-03-25 16:41:37][INFO] Epoch 0046 | Step 00050/00177 | loss=3.0398 | grad_norm=75.294 | max_norm=1.000 | 376.9s elapsed
+[2026-03-25 16:47:56][INFO] Epoch 0046 | Step 00100/00177 | loss=3.1501 | grad_norm=91.468 | max_norm=1.000 | 756.1s elapsed
+[2026-03-25 16:54:16][INFO] Epoch 0046 | Step 00150/00177 | loss=3.2433 | grad_norm=59.987 | max_norm=1.000 | 1135.9s elapsed
+[2026-03-25 17:04:09][INFO] Epoch 0046 | VAL loss=4.1150
+[2026-03-25 17:04:09][INFO] ─── Epoch 0046 | train=3.0942 | val=4.1150 | lr=8.04e-05 ───
+[2026-03-25 17:04:17][INFO] Epoch 0047 | Step 00000/00177 | loss=1.9281 | grad_norm=59.740 | max_norm=1.000 | 7.5s elapsed
+[2026-03-25 17:10:19][INFO] Epoch 0047 | Step 00050/00177 | loss=3.2895 | grad_norm=85.529 | max_norm=1.000 | 369.9s elapsed
+[2026-03-25 17:16:30][INFO] Epoch 0047 | Step 00100/00177 | loss=3.4819 | grad_norm=92.253 | max_norm=1.000 | 740.2s elapsed
+[2026-03-25 17:22:45][INFO] Epoch 0047 | Step 00150/00177 | loss=2.5027 | grad_norm=74.398 | max_norm=1.000 | 1115.6s elapsed
+[2026-03-25 17:32:32][INFO] Epoch 0047 | VAL loss=3.8610
+[2026-03-25 17:32:32][INFO] ─── Epoch 0047 | train=3.0875 | val=3.8610 | lr=7.96e-05 ───
+[2026-03-25 17:32:40][INFO] Epoch 0048 | Step 00000/00177 | loss=2.5298 | grad_norm=105.632 | max_norm=1.000 | 7.9s elapsed
+[2026-03-25 17:38:41][INFO] Epoch 0048 | Step 00050/00177 | loss=3.7772 | grad_norm=250.639 | max_norm=1.000 | 368.3s elapsed
+[2026-03-25 17:44:48][INFO] Epoch 0048 | Step 00100/00177 | loss=3.0259 | grad_norm=111.111 | max_norm=1.000 | 735.7s elapsed
+[2026-03-25 17:50:57][INFO] Epoch 0048 | Step 00150/00177 | loss=3.1649 | grad_norm=97.552 | max_norm=1.000 | 1104.6s elapsed
+[2026-03-25 18:00:50][INFO] Epoch 0048 | VAL loss=3.3192
+[2026-03-25 18:00:50][INFO] ─── Epoch 0048 | train=2.9895 | val=3.3192 | lr=7.88e-05 ───
+[2026-03-25 18:00:58][INFO] Epoch 0049 | Step 00000/00177 | loss=2.8715 | grad_norm=94.533 | max_norm=1.000 | 7.3s elapsed
+[2026-03-25 18:07:00][INFO] Epoch 0049 | Step 00050/00177 | loss=2.5546 | grad_norm=193.157 | max_norm=1.000 | 369.4s elapsed
+[2026-03-25 18:13:09][INFO] Epoch 0049 | Step 00100/00177 | loss=2.6361 | grad_norm=98.681 | max_norm=1.000 | 738.5s elapsed
+[2026-03-25 18:19:17][INFO] Epoch 0049 | Step 00150/00177 | loss=2.6617 | grad_norm=70.004 | max_norm=1.000 | 1106.7s elapsed
+[2026-03-25 18:28:50][INFO] Epoch 0049 | VAL loss=3.9961
+[2026-03-25 18:28:50][INFO] ─── Epoch 0049 | train=2.9964 | val=3.9961 | lr=7.80e-05 ───
+[2026-03-25 18:28:58][INFO] Epoch 0050 | Step 00000/00177 | loss=3.1858 | grad_norm=120.058 | max_norm=1.000 | 7.1s elapsed
+[2026-03-25 18:34:44][INFO] Epoch 0050 | Step 00050/00177 | loss=2.5752 | grad_norm=102.396 | max_norm=1.000 | 353.8s elapsed
+[2026-03-25 18:40:35][INFO] Epoch 0050 | Step 00100/00177 | loss=3.9060 | grad_norm=92.570 | max_norm=1.000 | 704.5s elapsed
+[2026-03-25 18:46:26][INFO] Epoch 0050 | Step 00150/00177 | loss=3.7732 | grad_norm=155.966 | max_norm=1.000 | 1055.1s elapsed
+[2026-03-25 18:55:37][INFO] Epoch 0050 | VAL loss=4.9572
+[2026-03-25 18:55:37][INFO] ─── Epoch 0050 | train=2.9097 | val=4.9572 | lr=7.72e-05 ───
+[2026-03-25 18:55:45][INFO] Epoch 0051 | Step 00000/00177 | loss=1.7472 | grad_norm=76.956 | max_norm=1.000 | 7.4s elapsed
+[2026-03-25 19:01:26][INFO] Epoch 0051 | Step 00050/00177 | loss=5.1542 | grad_norm=166.215 | max_norm=1.000 | 349.0s elapsed
+[2026-03-25 19:07:11][INFO] Epoch 0051 | Step 00100/00177 | loss=2.7170 | grad_norm=52.516 | max_norm=1.000 | 693.5s elapsed
+[2026-03-25 19:12:58][INFO] Epoch 0051 | Step 00150/00177 | loss=3.3846 | grad_norm=67.616 | max_norm=1.000 | 1040.3s elapsed
+[2026-03-25 19:22:00][INFO] Epoch 0051 | VAL loss=4.0419
+[2026-03-25 19:22:00][INFO] ─── Epoch 0051 | train=2.8991 | val=4.0419 | lr=7.64e-05 ───
+[2026-03-25 19:22:07][INFO] Epoch 0052 | Step 00000/00177 | loss=2.9120 | grad_norm=88.342 | max_norm=1.000 | 7.3s elapsed
+[2026-03-25 19:27:51][INFO] Epoch 0052 | Step 00050/00177 | loss=2.6727 | grad_norm=91.129 | max_norm=1.000 | 351.5s elapsed
+[2026-03-25 19:33:30][INFO] Epoch 0052 | Step 00100/00177 | loss=1.6918 | grad_norm=170.890 | max_norm=1.000 | 690.0s elapsed
+[2026-03-25 19:39:10][INFO] Epoch 0052 | Step 00150/00177 | loss=2.1353 | grad_norm=56.420 | max_norm=1.000 | 1030.1s elapsed
+[2026-03-25 19:48:01][INFO] Epoch 0052 | VAL loss=3.6958
+[2026-03-25 19:48:01][INFO] ─── Epoch 0052 | train=2.8679 | val=3.6958 | lr=7.55e-05 ───
+[2026-03-25 19:48:08][INFO] Epoch 0053 | Step 00000/00177 | loss=2.2948 | grad_norm=84.906 | max_norm=1.000 | 7.4s elapsed
+[2026-03-25 19:53:48][INFO] Epoch 0053 | Step 00050/00177 | loss=3.0517 | grad_norm=101.869 | max_norm=1.000 | 347.0s elapsed
+[2026-03-25 19:59:31][INFO] Epoch 0053 | Step 00100/00177 | loss=2.3743 | grad_norm=129.768 | max_norm=1.000 | 689.6s elapsed
+[2026-03-25 20:05:11][INFO] Epoch 0053 | Step 00150/00177 | loss=2.6783 | grad_norm=104.247 | max_norm=1.000 | 1030.2s elapsed
+[2026-03-25 20:14:04][INFO] Epoch 0053 | VAL loss=3.9887
+[2026-03-25 20:14:04][INFO] ─── Epoch 0053 | train=2.9334 | val=3.9887 | lr=7.47e-05 ───
+[2026-03-25 20:14:11][INFO] Epoch 0054 | Step 00000/00177 | loss=2.6642 | grad_norm=78.962 | max_norm=1.000 | 7.3s elapsed
+[2026-03-25 20:19:51][INFO] Epoch 0054 | Step 00050/00177 | loss=2.6513 | grad_norm=125.036 | max_norm=1.000 | 347.6s elapsed
+[2026-03-25 20:25:36][INFO] Epoch 0054 | Step 00100/00177 | loss=2.5247 | grad_norm=167.066 | max_norm=1.000 | 691.7s elapsed
+[2026-03-25 20:31:20][INFO] Epoch 0054 | Step 00150/00177 | loss=4.0702 | grad_norm=213.924 | max_norm=1.000 | 1035.6s elapsed
+[2026-03-25 20:40:04][INFO] Epoch 0054 | VAL loss=2.9780
+[2026-03-25 20:40:04][INFO] ─── Epoch 0054 | train=2.8934 | val=2.9780 | lr=7.38e-05 ───
+[2026-03-25 20:40:11][INFO] Epoch 0055 | Step 00000/00177 | loss=2.3910 | grad_norm=97.270 | max_norm=1.000 | 7.0s elapsed
+[2026-03-25 20:45:52][INFO] Epoch 0055 | Step 00050/00177 | loss=3.2705 | grad_norm=117.262 | max_norm=1.000 | 348.2s elapsed
+[2026-03-25 20:51:34][INFO] Epoch 0055 | Step 00100/00177 | loss=3.2114 | grad_norm=144.680 | max_norm=1.000 | 690.3s elapsed
+[2026-03-25 20:57:17][INFO] Epoch 0055 | Step 00150/00177 | loss=2.9159 | grad_norm=154.117 | max_norm=1.000 | 1032.8s elapsed
+[2026-03-25 21:05:57][INFO] Epoch 0055 | VAL loss=2.4445
+[2026-03-25 21:05:57][INFO] ─── Epoch 0055 | train=2.8093 | val=2.4445 | lr=7.30e-05 ───
+[2026-03-25 21:06:04][INFO] Epoch 0056 | Step 00000/00177 | loss=4.1480 | grad_norm=211.656 | max_norm=1.000 | 7.0s elapsed
+[2026-03-25 21:11:44][INFO] Epoch 0056 | Step 00050/00177 | loss=2.3258 | grad_norm=68.132 | max_norm=1.000 | 346.5s elapsed
+[2026-03-25 21:17:29][INFO] Epoch 0056 | Step 00100/00177 | loss=3.3657 | grad_norm=97.933 | max_norm=1.000 | 691.1s elapsed
+[2026-03-25 21:23:11][INFO] Epoch 0056 | Step 00150/00177 | loss=2.4872 | grad_norm=132.330 | max_norm=1.000 | 1033.7s elapsed
+[2026-03-25 21:31:55][INFO] Epoch 0056 | VAL loss=3.0236
+[2026-03-25 21:31:55][INFO] ─── Epoch 0056 | train=2.7402 | val=3.0236 | lr=7.21e-05 ───
+[2026-03-25 21:32:02][INFO] Epoch 0057 | Step 00000/00177 | loss=4.7799 | grad_norm=102.048 | max_norm=1.000 | 7.0s elapsed
+[2026-03-25 21:37:44][INFO] Epoch 0057 | Step 00050/00177 | loss=2.5132 | grad_norm=187.421 | max_norm=1.000 | 348.8s elapsed
+[2026-03-25 21:43:26][INFO] Epoch 0057 | Step 00100/00177 | loss=1.8401 | grad_norm=114.361 | max_norm=1.000 | 691.2s elapsed
+[2026-03-25 21:49:08][INFO] Epoch 0057 | Step 00150/00177 | loss=2.6888 | grad_norm=91.616 | max_norm=1.000 | 1033.6s elapsed
+[2026-03-25 21:57:58][INFO] Epoch 0057 | VAL loss=3.3400
+[2026-03-25 21:57:58][INFO] ─── Epoch 0057 | train=2.7387 | val=3.3400 | lr=7.12e-05 ───
+[2026-03-25 21:58:06][INFO] Epoch 0058 | Step 00000/00177 | loss=2.5933 | grad_norm=104.505 | max_norm=1.000 | 8.1s elapsed
+[2026-03-25 22:03:47][INFO] Epoch 0058 | Step 00050/00177 | loss=2.2660 | grad_norm=104.637 | max_norm=1.000 | 348.3s elapsed
+[2026-03-25 22:09:32][INFO] Epoch 0058 | Step 00100/00177 | loss=2.1422 | grad_norm=80.496 | max_norm=1.000 | 693.6s elapsed
+[2026-03-25 22:15:16][INFO] Epoch 0058 | Step 00150/00177 | loss=1.9719 | grad_norm=64.471 | max_norm=1.000 | 1037.3s elapsed
+[2026-03-25 22:23:59][INFO] Epoch 0058 | VAL loss=2.8480
+[2026-03-25 22:23:59][INFO] ─── Epoch 0058 | train=2.6450 | val=2.8480 | lr=7.03e-05 ───
+[2026-03-25 22:24:06][INFO] Epoch 0059 | Step 00000/00177 | loss=2.7910 | grad_norm=147.080 | max_norm=1.000 | 7.1s elapsed
+[2026-03-25 22:29:46][INFO] Epoch 0059 | Step 00050/00177 | loss=2.1964 | grad_norm=41.158 | max_norm=1.000 | 346.9s elapsed
+[2026-03-25 22:35:26][INFO] Epoch 0059 | Step 00100/00177 | loss=2.5940 | grad_norm=102.353 | max_norm=1.000 | 687.5s elapsed
+[2026-03-25 22:41:10][INFO] Epoch 0059 | Step 00150/00177 | loss=2.3050 | grad_norm=122.176 | max_norm=1.000 | 1031.6s elapsed
+[2026-03-25 22:49:56][INFO] Epoch 0059 | VAL loss=3.1999
+[2026-03-25 22:49:56][INFO] ─── Epoch 0059 | train=2.7111 | val=3.1999 | lr=6.94e-05 ───
+[2026-03-25 22:50:03][INFO] Epoch 0060 | Step 00000/00177 | loss=3.0940 | grad_norm=80.354 | max_norm=1.000 | 7.0s elapsed
+[2026-03-25 22:55:44][INFO] Epoch 0060 | Step 00050/00177 | loss=2.1188 | grad_norm=120.781 | max_norm=1.000 | 348.0s elapsed
+[2026-03-25 23:01:29][INFO] Epoch 0060 | Step 00100/00177 | loss=2.3701 | grad_norm=74.087 | max_norm=1.000 | 693.5s elapsed
+[2026-03-25 23:07:12][INFO] Epoch 0060 | Step 00150/00177 | loss=2.3626 | grad_norm=132.730 | max_norm=1.000 | 1035.8s elapsed
+[2026-03-25 23:15:55][INFO] Epoch 0060 | VAL loss=2.6410
+[2026-03-25 23:15:55][INFO] ─── Epoch 0060 | train=2.5938 | val=2.6410 | lr=6.85e-05 ───
+[2026-03-25 23:16:02][INFO] Epoch 0061 | Step 00000/00177 | loss=2.5115 | grad_norm=88.663 | max_norm=1.000 | 7.0s elapsed
+[2026-03-25 23:21:46][INFO] Epoch 0061 | Step 00050/00177 | loss=3.3879 | grad_norm=92.622 | max_norm=1.000 | 350.6s elapsed
+[2026-03-25 23:27:27][INFO] Epoch 0061 | Step 00100/00177 | loss=3.5020 | grad_norm=180.049 | max_norm=1.000 | 691.9s elapsed
+[2026-03-25 23:33:09][INFO] Epoch 0061 | Step 00150/00177 | loss=1.4152 | grad_norm=81.983 | max_norm=1.000 | 1033.6s elapsed
+[2026-03-25 23:41:56][INFO] Epoch 0061 | VAL loss=3.0641
+[2026-03-25 23:41:56][INFO] ─── Epoch 0061 | train=2.6215 | val=3.0641 | lr=6.76e-05 ───
+[2026-03-25 23:42:03][INFO] Epoch 0062 | Step 00000/00177 | loss=1.9320 | grad_norm=134.764 | max_norm=1.000 | 7.1s elapsed
+[2026-03-25 23:47:48][INFO] Epoch 0062 | Step 00050/00177 | loss=1.8675 | grad_norm=66.879 | max_norm=1.000 | 351.9s elapsed
+[2026-03-25 23:53:30][INFO] Epoch 0062 | Step 00100/00177 | loss=2.6453 | grad_norm=80.778 | max_norm=1.000 | 694.3s elapsed
+[2026-03-25 23:59:12][INFO] Epoch 0062 | Step 00150/00177 | loss=2.6157 | grad_norm=133.607 | max_norm=1.000 | 1035.7s elapsed
+[2026-03-26 00:07:55][INFO] Epoch 0062 | VAL loss=4.6575
+[2026-03-26 00:07:55][INFO] ─── Epoch 0062 | train=2.5573 | val=4.6575 | lr=6.67e-05 ───
+[2026-03-26 00:08:03][INFO] Epoch 0063 | Step 00000/00177 | loss=2.2073 | grad_norm=92.320 | max_norm=1.000 | 8.1s elapsed
+[2026-03-26 00:13:47][INFO] Epoch 0063 | Step 00050/00177 | loss=2.0369 | grad_norm=73.843 | max_norm=1.000 | 351.9s elapsed
+[2026-03-26 00:19:31][INFO] Epoch 0063 | Step 00100/00177 | loss=2.9369 | grad_norm=92.612 | max_norm=1.000 | 695.5s elapsed
+[2026-03-26 00:25:16][INFO] Epoch 0063 | Step 00150/00177 | loss=1.4213 | grad_norm=53.697 | max_norm=1.000 | 1040.8s elapsed
+[2026-03-26 00:34:05][INFO] Epoch 0063 | VAL loss=3.1308
+[2026-03-26 00:34:05][INFO] ─── Epoch 0063 | train=2.6529 | val=3.1308 | lr=6.58e-05 ───
+[2026-03-26 00:34:12][INFO] Epoch 0064 | Step 00000/00177 | loss=2.7492 | grad_norm=117.709 | max_norm=1.000 | 7.0s elapsed
+[2026-03-26 00:39:53][INFO] Epoch 0064 | Step 00050/00177 | loss=2.9167 | grad_norm=69.112 | max_norm=1.000 | 347.7s elapsed
+[2026-03-26 00:45:34][INFO] Epoch 0064 | Step 00100/00177 | loss=2.0297 | grad_norm=120.515 | max_norm=1.000 | 689.0s elapsed
+[2026-03-26 00:51:14][INFO] Epoch 0064 | Step 00150/00177 | loss=1.9756 | grad_norm=136.514 | max_norm=1.000 | 1029.4s elapsed
+[2026-03-26 00:59:56][INFO] Epoch 0064 | VAL loss=4.6631
+[2026-03-26 00:59:56][INFO] ─── Epoch 0064 | train=2.5683 | val=4.6631 | lr=6.49e-05 ───
+[2026-03-26 01:00:03][INFO] Epoch 0065 | Step 00000/00177 | loss=2.0875 | grad_norm=113.826 | max_norm=1.000 | 7.0s elapsed
+[2026-03-26 01:05:47][INFO] Epoch 0065 | Step 00050/00177 | loss=2.4333 | grad_norm=108.324 | max_norm=1.000 | 351.1s elapsed
+[2026-03-26 01:11:29][INFO] Epoch 0065 | Step 00100/00177 | loss=1.8525 | grad_norm=126.129 | max_norm=1.000 | 692.7s elapsed
+[2026-03-26 01:17:07][INFO] Epoch 0065 | Step 00150/00177 | loss=2.7571 | grad_norm=740.287 | max_norm=1.000 | 1030.4s elapsed
+[2026-03-26 01:25:49][INFO] Epoch 0065 | VAL loss=3.4277
+[2026-03-26 01:25:49][INFO] ─── Epoch 0065 | train=2.4376 | val=3.4277 | lr=6.39e-05 ───
+[2026-03-26 01:25:56][INFO] Epoch 0066 | Step 00000/00177 | loss=2.1543 | grad_norm=77.370 | max_norm=1.000 | 7.0s elapsed
+[2026-03-26 01:31:38][INFO] Epoch 0066 | Step 00050/00177 | loss=1.6162 | grad_norm=96.336 | max_norm=1.000 | 349.5s elapsed
+[2026-03-26 01:37:18][INFO] Epoch 0066 | Step 00100/00177 | loss=2.3125 | grad_norm=119.765 | max_norm=1.000 | 689.7s elapsed
+[2026-03-26 01:42:57][INFO] Epoch 0066 | Step 00150/00177 | loss=2.9252 | grad_norm=151.502 | max_norm=1.000 | 1028.7s elapsed
+[2026-03-26 01:51:41][INFO] Epoch 0066 | VAL loss=3.6269
+[2026-03-26 01:51:41][INFO] ─── Epoch 0066 | train=2.3937 | val=3.6269 | lr=6.30e-05 ───
+[2026-03-26 01:51:48][INFO] Epoch 0067 | Step 00000/00177 | loss=2.3300 | grad_norm=105.935 | max_norm=1.000 | 7.0s elapsed
+[2026-03-26 01:57:35][INFO] Epoch 0067 | Step 00050/00177 | loss=2.5186 | grad_norm=67.362 | max_norm=1.000 | 354.3s elapsed
+[2026-03-26 02:03:19][INFO] Epoch 0067 | Step 00100/00177 | loss=1.7894 | grad_norm=119.952 | max_norm=1.000 | 698.1s elapsed
+[2026-03-26 02:09:03][INFO] Epoch 0067 | Step 00150/00177 | loss=2.0612 | grad_norm=113.619 | max_norm=1.000 | 1041.6s elapsed
+[2026-03-26 02:17:43][INFO] Epoch 0067 | VAL loss=4.0928
+[2026-03-26 02:17:43][INFO] ─── Epoch 0067 | train=2.4848 | val=4.0928 | lr=6.21e-05 ───
+[2026-03-26 02:17:50][INFO] Epoch 0068 | Step 00000/00177 | loss=1.9772 | grad_norm=119.918 | max_norm=1.000 | 7.0s elapsed
+[2026-03-26 02:23:34][INFO] Epoch 0068 | Step 00050/00177 | loss=1.9217 | grad_norm=187.820 | max_norm=1.000 | 351.4s elapsed
+[2026-03-26 02:29:16][INFO] Epoch 0068 | Step 00100/00177 | loss=1.7593 | grad_norm=70.379 | max_norm=1.000 | 692.7s elapsed
+[2026-03-26 02:34:55][INFO] Epoch 0068 | Step 00150/00177 | loss=2.0647 | grad_norm=137.574 | max_norm=1.000 | 1032.3s elapsed
+[2026-03-26 02:43:31][INFO] Epoch 0068 | VAL loss=3.7288
+[2026-03-26 02:43:31][INFO] ─── Epoch 0068 | train=2.3372 | val=3.7288 | lr=6.11e-05 ───
+[2026-03-26 02:43:38][INFO] Epoch 0069 | Step 00000/00177 | loss=2.2659 | grad_norm=112.072 | max_norm=1.000 | 7.6s elapsed
+[2026-03-26 02:49:21][INFO] Epoch 0069 | Step 00050/00177 | loss=2.0501 | grad_norm=54.131 | max_norm=1.000 | 350.2s elapsed
+[2026-03-26 02:55:03][INFO] Epoch 0069 | Step 00100/00177 | loss=2.0972 | grad_norm=156.288 | max_norm=1.000 | 692.7s elapsed
+[2026-03-26 03:00:47][INFO] Epoch 0069 | Step 00150/00177 | loss=2.1967 | grad_norm=128.323 | max_norm=1.000 | 1036.2s elapsed
+[2026-03-26 03:09:29][INFO] Epoch 0069 | VAL loss=3.5865
+[2026-03-26 03:09:29][INFO] ─── Epoch 0069 | train=2.3954 | val=3.5865 | lr=6.02e-05 ───
+[2026-03-26 03:09:37][INFO] Epoch 0070 | Step 00000/00177 | loss=2.9581 | grad_norm=73.037 | max_norm=1.000 | 7.0s elapsed
+[2026-03-26 03:15:19][INFO] Epoch 0070 | Step 00050/00177 | loss=2.5929 | grad_norm=129.827 | max_norm=1.000 | 349.1s elapsed
+[2026-03-26 03:21:05][INFO] Epoch 0070 | Step 00100/00177 | loss=2.4647 | grad_norm=111.374 | max_norm=1.000 | 695.2s elapsed
+[2026-03-26 03:26:48][INFO] Epoch 0070 | Step 00150/00177 | loss=2.2947 | grad_norm=93.418 | max_norm=1.000 | 1038.6s elapsed
+[2026-03-26 03:35:28][INFO] Epoch 0070 | VAL loss=3.8427
+[2026-03-26 03:35:28][INFO] ─── Epoch 0070 | train=2.2751 | val=3.8427 | lr=5.92e-05 ───
+[2026-03-26 03:35:35][INFO] Epoch 0071 | Step 00000/00177 | loss=2.1772 | grad_norm=48.411 | max_norm=1.000 | 7.0s elapsed
+[2026-03-26 03:41:19][INFO] Epoch 0071 | Step 00050/00177 | loss=1.9104 | grad_norm=64.002 | max_norm=1.000 | 350.9s elapsed
+[2026-03-26 03:46:59][INFO] Epoch 0071 | Step 00100/00177 | loss=2.2762 | grad_norm=123.557 | max_norm=1.000 | 690.9s elapsed
+[2026-03-26 03:52:44][INFO] Epoch 0071 | Step 00150/00177 | loss=2.0016 | grad_norm=112.519 | max_norm=1.000 | 1036.1s elapsed
+[2026-03-26 04:01:26][INFO] Epoch 0071 | VAL loss=3.9725
+[2026-03-26 04:01:26][INFO] ─── Epoch 0071 | train=2.3023 | val=3.9725 | lr=5.82e-05 ───
+[2026-03-26 04:01:33][INFO] Epoch 0072 | Step 00000/00177 | loss=2.2012 | grad_norm=102.046 | max_norm=1.000 | 7.2s elapsed
+[2026-03-26 04:07:14][INFO] Epoch 0072 | Step 00050/00177 | loss=2.5874 | grad_norm=179.885 | max_norm=1.000 | 347.4s elapsed
+[2026-03-26 04:12:54][INFO] Epoch 0072 | Step 00100/00177 | loss=2.0778 | grad_norm=198.842 | max_norm=1.000 | 687.5s elapsed
+[2026-03-26 04:18:35][INFO] Epoch 0072 | Step 00150/00177 | loss=1.8971 | grad_norm=95.668 | max_norm=1.000 | 1028.8s elapsed
+[2026-03-26 04:27:17][INFO] Epoch 0072 | VAL loss=3.4431
+[2026-03-26 04:27:17][INFO] ─── Epoch 0072 | train=2.2350 | val=3.4431 | lr=5.73e-05 ───
+[2026-03-26 04:27:24][INFO] Epoch 0073 | Step 00000/00177 | loss=2.2246 | grad_norm=126.969 | max_norm=1.000 | 7.0s elapsed
+[2026-03-26 04:33:08][INFO] Epoch 0073 | Step 00050/00177 | loss=1.3326 | grad_norm=88.078 | max_norm=1.000 | 351.1s elapsed
+[2026-03-26 04:38:53][INFO] Epoch 0073 | Step 00100/00177 | loss=1.7754 | grad_norm=113.183 | max_norm=1.000 | 696.3s elapsed
+[2026-03-26 04:44:37][INFO] Epoch 0073 | Step 00150/00177 | loss=2.2795 | grad_norm=148.000 | max_norm=1.000 | 1040.7s elapsed
+[2026-03-26 04:53:19][INFO] Epoch 0073 | VAL loss=4.2074
+[2026-03-26 04:53:19][INFO] ─── Epoch 0073 | train=2.1892 | val=4.2074 | lr=5.63e-05 ───
+[2026-03-26 04:53:26][INFO] Epoch 0074 | Step 00000/00177 | loss=1.8559 | grad_norm=180.911 | max_norm=1.000 | 7.1s elapsed
+[2026-03-26 04:59:09][INFO] Epoch 0074 | Step 00050/00177 | loss=2.3206 | grad_norm=146.712 | max_norm=1.000 | 350.0s elapsed
+[2026-03-26 05:04:48][INFO] Epoch 0074 | Step 00100/00177 | loss=2.1952 | grad_norm=80.201 | max_norm=1.000 | 689.5s elapsed
+[2026-03-26 05:10:31][INFO] Epoch 0074 | Step 00150/00177 | loss=2.2741 | grad_norm=121.781 | max_norm=1.000 | 1032.1s elapsed
+[2026-03-26 05:19:12][INFO] Epoch 0074 | VAL loss=3.5247
+[2026-03-26 05:19:12][INFO] ─── Epoch 0074 | train=2.1242 | val=3.5247 | lr=5.54e-05 ───
+[2026-03-26 05:19:20][INFO] Epoch 0075 | Step 00000/00177 | loss=1.6520 | grad_norm=88.076 | max_norm=1.000 | 7.4s elapsed
+[2026-03-26 05:25:04][INFO] Epoch 0075 | Step 00050/00177 | loss=2.3311 | grad_norm=82.707 | max_norm=1.000 | 350.8s elapsed
+[2026-03-26 05:30:43][INFO] Epoch 0075 | Step 00100/00177 | loss=2.1556 | grad_norm=117.302 | max_norm=1.000 | 690.6s elapsed
+[2026-03-26 05:36:26][INFO] Epoch 0075 | Step 00150/00177 | loss=2.2893 | grad_norm=128.653 | max_norm=1.000 | 1033.5s elapsed
+[2026-03-26 05:45:11][INFO] Epoch 0075 | VAL loss=2.4717
+[2026-03-26 05:45:11][INFO] ─── Epoch 0075 | train=2.1477 | val=2.4717 | lr=5.44e-05 ───
+[2026-03-26 05:45:18][INFO] Epoch 0076 | Step 00000/00177 | loss=1.5772 | grad_norm=63.601 | max_norm=1.000 | 7.1s elapsed
+[2026-03-26 05:51:00][INFO] Epoch 0076 | Step 00050/00177 | loss=1.7657 | grad_norm=64.014 | max_norm=1.000 | 349.7s elapsed
+[2026-03-26 05:56:42][INFO] Epoch 0076 | Step 00100/00177 | loss=1.8104 | grad_norm=122.106 | max_norm=1.000 | 691.7s elapsed
+[2026-03-26 06:02:22][INFO] Epoch 0076 | Step 00150/00177 | loss=2.4488 | grad_norm=73.508 | max_norm=1.000 | 1031.4s elapsed
+[2026-03-26 06:11:06][INFO] Epoch 0076 | VAL loss=3.7399
+[2026-03-26 06:11:06][INFO] ─── Epoch 0076 | train=2.0906 | val=3.7399 | lr=5.34e-05 ───
+[2026-03-26 06:11:13][INFO] Epoch 0077 | Step 00000/00177 | loss=1.5371 | grad_norm=107.910 | max_norm=1.000 | 7.0s elapsed
+[2026-03-26 06:16:57][INFO] Epoch 0077 | Step 00050/00177 | loss=1.6644 | grad_norm=89.570 | max_norm=1.000 | 351.6s elapsed
+[2026-03-26 06:22:40][INFO] Epoch 0077 | Step 00100/00177 | loss=1.6327 | grad_norm=58.613 | max_norm=1.000 | 694.4s elapsed
+[2026-03-26 06:28:22][INFO] Epoch 0077 | Step 00150/00177 | loss=1.5723 | grad_norm=122.931 | max_norm=1.000 | 1036.1s elapsed
+[2026-03-26 06:37:04][INFO] Epoch 0077 | VAL loss=3.0592
+[2026-03-26 06:37:04][INFO] ─── Epoch 0077 | train=2.0658 | val=3.0592 | lr=5.24e-05 ───
+[2026-03-26 06:37:11][INFO] Epoch 0078 | Step 00000/00177 | loss=1.7023 | grad_norm=107.097 | max_norm=1.000 | 7.0s elapsed
+[2026-03-26 06:42:50][INFO] Epoch 0078 | Step 00050/00177 | loss=2.2008 | grad_norm=85.256 | max_norm=1.000 | 346.6s elapsed
+[2026-03-26 06:48:32][INFO] Epoch 0078 | Step 00100/00177 | loss=2.0441 | grad_norm=92.986 | max_norm=1.000 | 687.8s elapsed
+[2026-03-26 06:54:11][INFO] Epoch 0078 | Step 00150/00177 | loss=1.2274 | grad_norm=100.111 | max_norm=1.000 | 1027.0s elapsed
+[2026-03-26 07:02:52][INFO] Epoch 0078 | VAL loss=3.1445
+[2026-03-26 07:02:52][INFO] ─── Epoch 0078 | train=1.9999 | val=3.1445 | lr=5.15e-05 ───
+[2026-03-26 07:02:59][INFO] Epoch 0079 | Step 00000/00177 | loss=1.6975 | grad_norm=100.664 | max_norm=1.000 | 7.0s elapsed
+[2026-03-26 07:08:40][INFO] Epoch 0079 | Step 00050/00177 | loss=1.8325 | grad_norm=126.525 | max_norm=1.000 | 347.9s elapsed
+[2026-03-26 07:14:18][INFO] Epoch 0079 | Step 00100/00177 | loss=2.6904 | grad_norm=91.238 | max_norm=1.000 | 686.0s elapsed
+[2026-03-26 07:19:56][INFO] Epoch 0079 | Step 00150/00177 | loss=2.2526 | grad_norm=237.903 | max_norm=1.000 | 1024.6s elapsed
+[2026-03-26 07:28:37][INFO] Epoch 0079 | VAL loss=3.1583
+[2026-03-26 07:28:37][INFO] ─── Epoch 0079 | train=2.0111 | val=3.1583 | lr=5.05e-05 ───
+[2026-03-26 07:28:45][INFO] Epoch 0080 | Step 00000/00177 | loss=1.6954 | grad_norm=76.276 | max_norm=1.000 | 7.1s elapsed
+[2026-03-26 07:34:27][INFO] Epoch 0080 | Step 00050/00177 | loss=1.6712 | grad_norm=64.048 | max_norm=1.000 | 349.0s elapsed
+[2026-03-26 07:40:09][INFO] Epoch 0080 | Step 00100/00177 | loss=2.0270 | grad_norm=242.923 | max_norm=1.000 | 691.6s elapsed
+[2026-03-26 07:45:51][INFO] Epoch 0080 | Step 00150/00177 | loss=2.1988 | grad_norm=186.343 | max_norm=1.000 | 1033.4s elapsed
+[2026-03-26 07:54:32][INFO] Epoch 0080 | VAL loss=3.2057
+[2026-03-26 07:54:32][INFO] ─── Epoch 0080 | train=1.9338 | val=3.2057 | lr=4.95e-05 ───
+[2026-03-26 07:54:39][INFO] Epoch 0081 | Step 00000/00177 | loss=1.6280 | grad_norm=102.190 | max_norm=1.000 | 7.3s elapsed
+[2026-03-26 08:00:18][INFO] Epoch 0081 | Step 00050/00177 | loss=2.7419 | grad_norm=148.419 | max_norm=1.000 | 346.1s elapsed
+[2026-03-26 08:06:00][INFO] Epoch 0081 | Step 00100/00177 | loss=1.7255 | grad_norm=76.959 | max_norm=1.000 | 688.4s elapsed
+[2026-03-26 08:11:41][INFO] Epoch 0081 | Step 00150/00177 | loss=1.2002 | grad_norm=92.567 | max_norm=1.000 | 1029.6s elapsed
+[2026-03-26 08:20:20][INFO] Epoch 0081 | VAL loss=3.2483
+[2026-03-26 08:20:20][INFO] ─── Epoch 0081 | train=1.9733 | val=3.2483 | lr=4.86e-05 ───
+[2026-03-26 08:20:27][INFO] Epoch 0082 | Step 00000/00177 | loss=1.7047 | grad_norm=77.241 | max_norm=1.000 | 7.0s elapsed
+[2026-03-26 08:26:09][INFO] Epoch 0082 | Step 00050/00177 | loss=2.0112 | grad_norm=113.931 | max_norm=1.000 | 349.5s elapsed
+[2026-03-26 08:31:49][INFO] Epoch 0082 | Step 00100/00177 | loss=2.1417 | grad_norm=137.275 | max_norm=1.000 | 689.7s elapsed
+[2026-03-26 08:37:31][INFO] Epoch 0082 | Step 00150/00177 | loss=1.8952 | grad_norm=159.599 | max_norm=1.000 | 1031.6s elapsed
+[2026-03-26 08:46:10][INFO] Epoch 0082 | VAL loss=2.6904
+[2026-03-26 08:46:10][INFO] ─── Epoch 0082 | train=1.9534 | val=2.6904 | lr=4.76e-05 ───
+[2026-03-26 08:46:17][INFO] Epoch 0083 | Step 00000/00177 | loss=1.5034 | grad_norm=67.494 | max_norm=1.000 | 7.0s elapsed
+[2026-03-26 08:52:00][INFO] Epoch 0083 | Step 00050/00177 | loss=1.8675 | grad_norm=138.480 | max_norm=1.000 | 349.9s elapsed
+[2026-03-26 08:57:41][INFO] Epoch 0083 | Step 00100/00177 | loss=2.7877 | grad_norm=88.279 | max_norm=1.000 | 690.7s elapsed
+[2026-03-26 09:03:23][INFO] Epoch 0083 | Step 00150/00177 | loss=1.3027 | grad_norm=106.808 | max_norm=1.000 | 1032.7s elapsed
+[2026-03-26 09:12:03][INFO] Epoch 0083 | VAL loss=2.6917
+[2026-03-26 09:12:03][INFO] ─── Epoch 0083 | train=1.8752 | val=2.6917 | lr=4.66e-05 ───
+[2026-03-26 09:12:10][INFO] Epoch 0084 | Step 00000/00177 | loss=2.5149 | grad_norm=143.646 | max_norm=1.000 | 7.1s elapsed
+[2026-03-26 09:17:53][INFO] Epoch 0084 | Step 00050/00177 | loss=2.1848 | grad_norm=184.098 | max_norm=1.000 | 349.9s elapsed
+[2026-03-26 09:23:34][INFO] Epoch 0084 | Step 00100/00177 | loss=1.2476 | grad_norm=79.983 | max_norm=1.000 | 690.9s elapsed
+[2026-03-26 09:29:17][INFO] Epoch 0084 | Step 00150/00177 | loss=1.9156 | grad_norm=119.808 | max_norm=1.000 | 1033.7s elapsed
+[2026-03-26 09:37:58][INFO] Epoch 0084 | VAL loss=2.3890
+[2026-03-26 09:37:58][INFO] ─── Epoch 0084 | train=1.9729 | val=2.3890 | lr=4.56e-05 ───
+[2026-03-26 09:38:05][INFO] Epoch 0085 | Step 00000/00177 | loss=1.7954 | grad_norm=205.201 | max_norm=1.000 | 7.0s elapsed
+[2026-03-26 09:43:47][INFO] Epoch 0085 | Step 00050/00177 | loss=1.8669 | grad_norm=163.058 | max_norm=1.000 | 349.4s elapsed
+[2026-03-26 09:49:28][INFO] Epoch 0085 | Step 00100/00177 | loss=1.2693 | grad_norm=94.275 | max_norm=1.000 | 689.9s elapsed
+[2026-03-26 09:55:09][INFO] Epoch 0085 | Step 00150/00177 | loss=1.2665 | grad_norm=224.217 | max_norm=1.000 | 1031.0s elapsed
+[2026-03-26 10:03:53][INFO] Epoch 0085 | VAL loss=3.3585
+[2026-03-26 10:03:53][INFO] ─── Epoch 0085 | train=1.8527 | val=3.3585 | lr=4.47e-05 ───
+[2026-03-26 10:04:01][INFO] Epoch 0086 | Step 00000/00177 | loss=1.4371 | grad_norm=125.505 | max_norm=1.000 | 7.0s elapsed
+W0326 10:07:56.901000 1567711 site-packages/torch/distributed/elastic/agent/server/api.py:739] Received Signals.SIGTERM death signal, shutting down workers
+W0326 10:07:56.904000 1567711 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 1567826 closing signal SIGTERM
+W0326 10:07:56.905000 1567711 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 1567827 closing signal SIGTERM
+W0326 10:07:56.906000 1567711 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 1567828 closing signal SIGTERM
+W0326 10:07:56.907000 1567711 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 1567829 closing signal SIGTERM
+W0326 10:07:56.907000 1567711 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 1567830 closing signal SIGTERM
+W0326 10:07:56.908000 1567711 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 1567831 closing signal SIGTERM
+W0326 10:07:56.909000 1567711 site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 1567832 closing signal SIGTERM
+Traceback (most recent call last):
+  File "/home/shivaprasadgowda/miniconda3/envs/treewave/bin/torchrun", line 6, in <module>
+    sys.exit(main())
+  File "/home/shivaprasadgowda/miniconda3/envs/treewave/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 362, in wrapper
+    return f(*args, **kwargs)
+  File "/home/shivaprasadgowda/miniconda3/envs/treewave/lib/python3.10/site-packages/torch/distributed/run.py", line 991, in main
+    run(args)
+  File "/home/shivaprasadgowda/miniconda3/envs/treewave/lib/python3.10/site-packages/torch/distributed/run.py", line 982, in run
+    elastic_launch(
+  File "/home/shivaprasadgowda/miniconda3/envs/treewave/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 170, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home/shivaprasadgowda/miniconda3/envs/treewave/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 308, in launch_agent
+    result = agent.run()
+  File "/home/shivaprasadgowda/miniconda3/envs/treewave/lib/python3.10/site-packages/torch/distributed/elastic/metrics/api.py", line 134, in wrapper
+    result = f(*args, **kwargs)
+  File "/home/shivaprasadgowda/miniconda3/envs/treewave/lib/python3.10/site-packages/torch/distributed/elastic/agent/server/api.py", line 731, in run
+    result = self._invoke_run(role)
+  File "/home/shivaprasadgowda/miniconda3/envs/treewave/lib/python3.10/site-packages/torch/distributed/elastic/agent/server/api.py", line 908, in _invoke_run
+    time.sleep(monitor_interval)
+  File "/home/shivaprasadgowda/miniconda3/envs/treewave/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 86, in _terminate_process_handler
+    raise SignalException(f"Process {os.getpid()} got signal: {sigval}", sigval=sigval)
+torch.distributed.elastic.multiprocessing.api.SignalException: Process 1567711 got signal: 15
