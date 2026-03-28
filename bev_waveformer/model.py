@@ -331,8 +331,8 @@ class WavePropagationOperator(nn.Module):
         half_a = alpha / 2.0
 
         omega2_d = (v ** 2) * self.omega2 - half_a ** 2
-                # FIX: Softplus prevents taking sqrt of negative numbers without killing gradients
-        omega2_d = F.softplus(omega2_d) + EPS
+                 # Use mathematical clamp instead of softplus to preserve gradient flow
+        omega2_d = torch.clamp(omega2_d, min=EPS)
         omega_d  = torch.sqrt(omega2_d)
 
         decay    = torch.exp(-half_a * t)
@@ -344,7 +344,11 @@ class WavePropagationOperator(nn.Module):
                 + sinc_val * (V0_f + half_a * U0_f)
             )
 
-            # FIX: Removed the destructive _SPECTRAL_CLAMP to preserve phase/amplitude info
+            # Restore SPECTRAL_CLAMP using magnitude to perfectly preserve phase ratios!
+        mag = Ut_f.abs()
+        scale = _SPECTRAL_CLAMP / torch.clamp(mag, min=_SPECTRAL_CLAMP)
+        Ut_f = Ut_f * scale
+
         return Ut_f
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
@@ -367,8 +371,12 @@ class WavePropagationOperator(nn.Module):
             V0_f = torch.fft.rfft2(V0_f32, norm='ortho')
 
             # -- v2.2 fix1 clamping the exponentials to avoid explosion
-            self.log_alpha.data.clamp_(-17.0, 17.0)
-            self.log_v.data.clamp_(-17.0, 17.0)
+            # self.log_alpha.data.clamp_(-17.0, 17.0)
+            # self.log_v.data.clamp_(-17.0, 17.0)
+
+            # -- v2.3 REMOVED .data.clamp_ from here. We will clamp post-optimizer step in train.py instead!
+            # v2.2 fix is compromised
+            
 
             alpha = torch.exp(self.log_alpha)
             v     = torch.exp(self.log_v)
@@ -378,10 +386,17 @@ class WavePropagationOperator(nn.Module):
 
 
             # -- v2.2 fix2 preventing overflow problem in float16
-            Ut_f32 = torch.clamp(Ut_f32, min=-60000.0, max=60000.0)
+            # -- v2.3 Lowered clamp to physically realistic values to prevent Conv2d FP16 Overflow
+
+            Ut_f32 = torch.clamp(Ut_f32, min=-256.0, max=256.0)
             
         Ut  = Ut_f32.to(dtype)
-        out = self.out_proj(Ut) + x
+
+        # --- v2.3 update # Protect the residual connection from FP16 GroupNorm explosion
+        out_p = self.out_proj(Ut)
+        out_p = torch.clamp(out_p, min=-65000.0, max=65000.0)
+
+        out = out_p + x
         return out
 
 
@@ -562,13 +577,15 @@ class BEVWaveFormer(nn.Module):
 
         # --- V2: Lightweight U-Net FPN Neck (64 Channels to save VRAM) ---
         fpn_dim = 64
+
+        # -- v2.3 fix add normalization for upsampling
         # Stage 4 (64x64) -> Compress to 64ch -> Upsample to 128x128
         self.fpn_s4_shrink = nn.Sequential(nn.Conv2d(stage_dims[3], fpn_dim, 1, bias=False), nn.GroupNorm(8, fpn_dim), nn.SiLU(inplace=True))
-        self.fpn_s4_up     = nn.ConvTranspose2d(fpn_dim, fpn_dim, kernel_size=2, stride=2)
+        self.fpn_s4_up     = nn.Sequential(nn.ConvTranspose2d(fpn_dim, fpn_dim, kernel_size=2, stride=2) , nn.GroupNorm(8, fpn_dim), nn.SiLU(inplace=True))
         
         # Stage 3 (128x128) -> Compress to 64ch -> Upsample to 256x256
         self.fpn_s3_shrink = nn.Sequential(nn.Conv2d(stage_dims[2], fpn_dim, 1, bias=False), nn.GroupNorm(8, fpn_dim), nn.SiLU(inplace=True))
-        self.fpn_s3_up     = nn.ConvTranspose2d(fpn_dim, fpn_dim, kernel_size=2, stride=2)
+        self.fpn_s3_up     = nn.Sequential(nn.ConvTranspose2d(fpn_dim, fpn_dim, kernel_size=2, stride=2), nn.GroupNorm(8, fpn_dim), nn.SiLU(inplace=True))
         
         # Stage 2 (256x256) -> Compress to 64ch
         self.fpn_s2_shrink = nn.Sequential(nn.Conv2d(stage_dims[1], fpn_dim, 1, bias=False), nn.GroupNorm(8, fpn_dim), nn.SiLU(inplace=True))

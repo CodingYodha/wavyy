@@ -424,6 +424,10 @@ def train_one_epoch(model: DDP,
     # parameters from corrupting backbone weights during early training.
     max_norm = min(1.0, 0.1 + 0.9 * (epoch / 10.0))
 
+    # -- v2.3 fix: 
+    # PRECAUTION: Initialize the rolling safe state in CPU RAM
+    safe_state = {k: v.cpu().clone() for k, v in model.module.state_dict().items()}
+
     for step, batch in enumerate(loader):
         pillars    = batch['pillars'].to(device,    non_blocking=True)
         num_points = batch['num_points'].to(device, non_blocking=True)
@@ -449,17 +453,37 @@ def train_one_epoch(model: DDP,
         # ── Gradient check + clip ────────────────────────────────────────────
         grad_norm = torch.nn.utils.clip_grad_norm_(
             model.parameters(), max_norm=max_norm)
+# v2.3 fix --
+        # CHECK 1: Is the gradient NaN?
+        # CHECK 2: Did the PREVIOUS step push any weight to NaN?
+        has_nan_param = any(not torch.isfinite(p).all() for p in model.parameters())
 
-        if not torch.isfinite(grad_norm):
-            # FIX [Critical]: zero grads AND reset optimizer moment buffers.
-            # Without resetting exp_avg/exp_avg_sq, one NaN event permanently
-            # corrupts all future optimizer steps even on clean batches.
+        if not torch.isfinite(grad_norm) or has_nan_param:
+     
             optimizer.zero_grad(set_to_none=True)
             reset_optimizer_state(optimizer, logger, step, epoch)
+
+            # PRECAUTION: The weights might be corrupted. ROLLBACK to safe state!
+            model.module.load_state_dict(safe_state)
+            logger.warning(f"Epoch {epoch} Step {step}: NaN detected. Rolled back weights to last safe state.")
+
+
             skipped += 1
             continue
 
         optimizer.step()
+
+        # ── POST-STEP PHYSICS CLAMP ──────────────────────────────────────────
+        # Guarantee log_alpha and log_v never exceed physically safe values
+        # e^3.0 = 20.0 (Fast wave/high damping), e^-4.0 = 0.018 (Slow wave)
+        with torch.no_grad():
+            for name, param in model.named_parameters():
+                if 'log_alpha' in name or 'log_v' in name:
+                    param.clamp_(-4.0, 3.0) 
+
+        # PRECAUTION: Update the safe state every 50 steps
+        if step % 50 == 0:
+            safe_state = {k: v.cpu().clone() for k, v in model.module.state_dict().items()}
 
         total_loss += loss.item()
 
@@ -637,6 +661,24 @@ def main():
     # ── 7. Training loop ───────────────────────────────────────────────────────
     for epoch in range(start_epoch, args.epochs):
         train_sampler.set_epoch(epoch)
+
+        # -- v2.3 fix
+        # PRECAUTION: Freeze wave physics for the first 5 epochs
+        if epoch < 4:
+            for name, param in model.named_parameters():
+                if 'log_alpha' in name or 'log_v' in name:
+                   param.requires_grad = False
+
+            if rank == 0:
+                logger.info(f"Epoch {epoch}: Wave physics parameters frozen.")
+        else:
+            for name, param in model.named_parameters():
+                if 'log_alpha' in name or 'log_v' in name:
+                    param.requires_grad = True
+            if rank == 0 and epoch == 4:
+                logger.info(f"Epoch {epoch}: Wave physics parameters UNFROZEN.")
+
+
 
         train_loss = train_one_epoch(
             model, train_loader, optimizer, criterion,
