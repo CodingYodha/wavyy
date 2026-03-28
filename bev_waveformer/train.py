@@ -473,6 +473,15 @@ def train_one_epoch(model: DDP,
                 f'| {elapsed:.1f}s elapsed'
             )
 
+            if dist.get_rank()==0:
+                csv_path = './checkpoints/train_metrics.csv'
+                # Write header if file doesn't exist
+                if not os.path.exists(csv_path):
+                    with open(csv_path, 'w') as f:
+                        f.write("Epoch,Step,TrainLoss,GradNorm,MaxNorm\n")
+                # Append data
+                with open(csv_path, 'a') as f:
+                    f.write(f"{epoch},{step},{loss.item():.4f},{grad_norm:.3f},{max_norm:.3f}\n")
     if skipped > 0:
         logger.warning(
             f'Epoch {epoch:04d} | Skipped {skipped} steps '

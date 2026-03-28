@@ -209,6 +209,27 @@ class ValMetrics:
         results.update(total_loss=total_loss,
                        focal_loss=avg_focal,
                        reg_loss=avg_reg)
+
+    # --- NEW: Save to structured CSV for research plotting ---
+        if dist.get_rank()==0:
+            csv_path = './checkpoints/val_metrics.csv'
+            
+            write_header = not os.path.exists(csv_path)
+            with open(csv_path, 'a') as f:
+                if write_header:
+                    f.write("Epoch,TotalLoss,FocalLoss,RegLoss,Car_Recall3,Car_Recall5,Ped_Recall3,Cyc_Recall3\n")
+                
+                # Extract metrics safely
+                c_rec3 = results.get('Car', {}).get('recall_at_03', 0.0)
+                c_rec5 = results.get('Car', {}).get('recall_at_05', 0.0)
+                p_rec3 = results.get('Pedestrian', {}).get('recall_at_03', 0.0)
+                cy_rec3 = results.get('Cyclist', {}).get('recall_at_03', 0.0)
+                
+                # Note: We must pass 'epoch' to report() to log it, or just use a counter. 
+                # (If epoch isn't available inside report(), modify the report() signature to accept epoch)
+                f.write(f"{epoch},{total_loss:.4f},{avg_focal:.4f},{avg_reg:.4f},{c_rec3:.4f},{c_rec5:.4f},{p_rec3:.4f},{cy_rec3:.4f}\n")
+                
+
         return results
 
 
@@ -332,7 +353,7 @@ def main():
     metrics.aggregate(device)
 
     if rank == 0:
-        metrics.report(logger)
+        metrics.report(logger, epoch)
         logger.info('Done.')
 
     dist.destroy_process_group()

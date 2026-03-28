@@ -364,12 +364,20 @@ class WavePropagationOperator(nn.Module):
             U0_f = torch.fft.rfft2(U0_f32, norm='ortho')
             V0_f = torch.fft.rfft2(V0_f32, norm='ortho')
 
+            # -- v2.2 fix1 clamping the exponentials to avoid explosion
+            self.log_alpha.data.clamp_(-30.0, 30.0)
+            self.log_v.data.clamp_(-30.0, 30.0)
+
             alpha = torch.exp(self.log_alpha)
             v     = torch.exp(self.log_v)
 
             Ut_f   = self._wave_propagate(U0_f, V0_f, alpha, v)
             Ut_f32 = torch.fft.irfft2(Ut_f, s=(self.H, self.W), norm='ortho')
 
+
+            # -- v2.2 fix2 preventing overflow problem in float16
+            Ut_f32 = torch.clamp(Ut_f32, min=-60000.0, max=60000.0)
+            
         Ut  = Ut_f32.to(dtype)
         out = self.out_proj(Ut) + x
         return out
