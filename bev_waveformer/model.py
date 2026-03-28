@@ -248,7 +248,9 @@ def _stable_sinc(omega_d: torch.Tensor, t: float) -> torch.Tensor:
     exact formula elsewhere.  Prevents Inf/NaN in forward and backward.
     """
     x       = omega_d * t
-    x2      = x * x
+    x_safe = torch.where(x < 0.05, x, torch.zeros_like(x))
+
+    x2      = x_safe * x_safe
     taylor  = 1.0 - x2 / 6.0 + (x2 * x2) / 120.0
     exact   = torch.sin(x) / x.clamp(min=_SINC_TAYLOR_THRESH)
     return torch.where(x < _SINC_TAYLOR_THRESH, taylor, exact)
@@ -365,8 +367,8 @@ class WavePropagationOperator(nn.Module):
             V0_f = torch.fft.rfft2(V0_f32, norm='ortho')
 
             # -- v2.2 fix1 clamping the exponentials to avoid explosion
-            self.log_alpha.data.clamp_(-30.0, 30.0)
-            self.log_v.data.clamp_(-30.0, 30.0)
+            self.log_alpha.data.clamp_(-17.0, 17.0)
+            self.log_v.data.clamp_(-17.0, 17.0)
 
             alpha = torch.exp(self.log_alpha)
             v     = torch.exp(self.log_v)
